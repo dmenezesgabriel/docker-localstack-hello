@@ -5,8 +5,8 @@ services:
     image: localstack/localstack
     network_mode: bridge
     ports:
-      - "127.0.0.1:4510-4559:4510-4559"  # external service port range
-      - "127.0.0.1:4566:4566"            # LocalStack Edge Proxy
+      - "127.0.0.1:4510-4559:4510-4559" # external service port range
+      - "127.0.0.1:4566:4566" # LocalStack Edge Proxy
     environment:
       - DEBUG=${DEBUG-}
       - DATA_DIR=${DATA_DIR-}
@@ -16,3 +16,18 @@ services:
     volumes:
       - "${TMPDIR:-/tmp}/localstack:/tmp/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
+
+  aws-glue:
+    image: amazon/aws-glue-libs:glue_libs_1.0.0_image_01
+    container_name: "aws-glue"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/opt
+    links:
+      - localstack
+    environment:
+      S3_ENDPOINT: http://localstack:4566
