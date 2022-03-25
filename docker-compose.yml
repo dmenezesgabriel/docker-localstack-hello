@@ -14,35 +14,34 @@ services:
       # ===================================================================== #
     environment:
       # ===================================================================== #
-      - DEFAULT_REGION=us-east-1
+      # Reference
+      # https://docs.localstack.cloud/localstack/configuration/
+      # ===================================================================== #
+      - DEFAULT_REGION=${DEFAULT_REGION-us-east-1}
       # ===================================================================== #
       # AWS services
-      - SERVICES=lambda,s3
+      - SERVICES=${SERVICES-lambda,s3,apigateway,cloudwatch,dynamodb,sqs,kinesis,serverless,secretsmanager}
       # ===================================================================== #
       # Logging DEBUG
       - DEBUG=${DEBUG-1}
+      # ===================================================================== #
+      # Port number for the edge service, the main entry point for all
+      # API invocations.
       - EDGE_PORT=4566
       # ===================================================================== #
       # Data is not persisted between runs, s3 Buckets contents
       # can be preserved with DATA_DIR and "/tmp/localstack" volume
       # Local directory for saving persistent data
-      - DATA_DIR=/tmp/localstack/data
+      - DATA_DIR=${DATA_DIR-/tmp/localstack/data}
       # ===================================================================== #
-    # - HOSTNAME=localstack
-    # - HOSTNAME_EXTERNAL=localstack
-    # - DATA_DIR=${DATA_DIR-}
-    # - LAMBDA_EXECUTOR=${LAMBDA_EXECUTOR-}
-    # - HOST_TMP_FOLDER=${TMPDIR:-/tmp/}localstack
-    # - DOCKER_HOST=unix:///var/run/docker.sock
-    # #  Kinesis
-    # - KINESIS_STREAM_SHARDS=1
-    # - KINESIS_ERROR_PROBABILITY=0.0
-    # - KINESIS_STREAM_NAME=kinesis-stream
-    # - KINESIS_PROVIDER=kinesalite
     volumes:
+      # ===================================================================== #
       # Data is not persisted between runs, s3 Buckets contents
       # can be preserved with DATA_DIR and "/tmp/localstack" volume
+      # ===================================================================== #
       - "${TMPDIR:-/tmp}/localstack:/tmp/localstack"
+      # ===================================================================== #
+      # Docker is used extensively by LocalStack, access hosts's docker
       - "/var/run/docker.sock:/var/run/docker.sock"
 
   # ========================================================================= #
