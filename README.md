@@ -209,3 +209,4 @@ awslocal --endpoint=http://localhost:4566 secretsmanager get-secret-value \
 - [geekhunter](https://blog.geekhunter.com.br/aws-lambda-python-pycharm-localstack/)
 - [manomano](https://medium.com/manomano-tech/using-serverless-framework-localstack-to-test-your-aws-applications-locally-17748ffe6755)
 - [thomsdacosta](https://thomsdacosta.medium.com/localstack-ambiente-local-para-testar-a-sua-aplica%C3%A7%C3%A3o-aws-4bc255e3ab56)
+- [trainingcenter](https://medium.com/trainingcenter/localstack-testando-servi%C3%A7os-aws-7f9f24de293c)
