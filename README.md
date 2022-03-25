@@ -200,6 +200,24 @@ awslocal --endpoint=http://localhost:4566 secretsmanager get-secret-value \
   --secret-id test-secret
 ```
 
+## AWS CLI
+
+- **version**:
+
+  ```sh
+  docker run --rm -it amazon/aws-cli --version
+  ```
+
+- **Configure profile**:
+
+  ```sh
+  docker run --rm -it amazon/aws-cli configure --profile localstack
+  # AWS Access Key ID [None]: test
+  # AWS Secret Access Key [None]: test
+  # Default region name [None]: us-east-1
+  # Default output format [None]:
+  ```
+
 ## References
 
 - [ciaranevans](https://github.com/ciaranevans/aws-guild-localstack)
@@ -210,3 +228,5 @@ awslocal --endpoint=http://localhost:4566 secretsmanager get-secret-value \
 - [manomano](https://medium.com/manomano-tech/using-serverless-framework-localstack-to-test-your-aws-applications-locally-17748ffe6755)
 - [thomsdacosta](https://thomsdacosta.medium.com/localstack-ambiente-local-para-testar-a-sua-aplica%C3%A7%C3%A3o-aws-4bc255e3ab56)
 - [trainingcenter](https://medium.com/trainingcenter/localstack-testando-servi%C3%A7os-aws-7f9f24de293c)
+- [hands-on.cloud](https://hands-on.cloud/testing-python-aws-applications-using-localstack/)
+- [stackoverflow](https://stackoverflow.com/questions/65869335/unable-to-connect-to-a-localstack-docker-instance-on-a-windows-10-machine-unab)
