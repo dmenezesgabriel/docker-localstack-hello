@@ -2,17 +2,63 @@ version: "3.8"
 services:
   localstack:
     container_name: "${LOCALSTACK_DOCKER_NAME-localstack_main}"
-    image: localstack/localstack
+    image: localstack/localstack:latest
     network_mode: bridge
     ports:
-      - "127.0.0.1:4510-4559:4510-4559"  # external service port range
-      - "127.0.0.1:4566:4566"            # LocalStack Edge Proxy
+      # ===================================================================== #
+      # external service port range
+      - "127.0.0.1:4510-4559:4510-4559"
+      # ===================================================================== #
+      # LocalStack Edge Proxy
+      - "127.0.0.1:4566:4566"
+      # ===================================================================== #
     environment:
-      - DEBUG=${DEBUG-}
-      - DATA_DIR=${DATA_DIR-}
-      - LAMBDA_EXECUTOR=${LAMBDA_EXECUTOR-}
-      - HOST_TMP_FOLDER=${TMPDIR:-/tmp/}localstack
-      - DOCKER_HOST=unix:///var/run/docker.sock
+      # ===================================================================== #
+      # Reference
+      # https://docs.localstack.cloud/localstack/configuration/
+      # ===================================================================== #
+      - DEFAULT_REGION=${DEFAULT_REGION-us-east-1}
+      # ===================================================================== #
+      # AWS services
+      - SERVICES=${SERVICES-lambda,s3,apigateway,cloudwatch,dynamodb,sqs,kinesis,serverless,secretsmanager}
+      # ===================================================================== #
+      # Logging DEBUG
+      - DEBUG=${DEBUG-1}
+      # ===================================================================== #
+      # Port number for the edge service, the main entry point for all
+      # API invocations.
+      - EDGE_PORT=4566
+      # ===================================================================== #
+      # Data is not persisted between runs, s3 Buckets contents
+      # can be preserved with DATA_DIR and "/tmp/localstack" volume
+      # Local directory for saving persistent data
+      - DATA_DIR=${DATA_DIR-/tmp/localstack/data}
+      # ===================================================================== #
     volumes:
+      # ===================================================================== #
+      # Data is not persisted between runs, s3 Buckets contents
+      # can be preserved with DATA_DIR and "/tmp/localstack" volume
+      # ===================================================================== #
       - "${TMPDIR:-/tmp}/localstack:/tmp/localstack"
+      # ===================================================================== #
+      # Docker is used extensively by LocalStack, access hosts's docker
       - "/var/run/docker.sock:/var/run/docker.sock"
+
+  # ========================================================================= #
+  # AWS Glue
+  # Widely used as serverless ETL
+  # ========================================================================= #
+  aws-glue:
+    image: amazon/aws-glue-libs:glue_libs_1.0.0_image_01
+    container_name: "aws-glue"
+    build:
+      context: ./services/aws_glue
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/opt
+    links:
+      - localstack
+    environment:
+      S3_ENDPOINT: http://localstack:4566
