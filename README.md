@@ -97,12 +97,50 @@ docker-compose up localstack
   awslocal --endpoint-url=http://localhost:4566 s3 cp ./samples/lambda/ s3://user-uploads/lambda/ --recursive
   ```
 
-### API Gateway
+### SQS
 
-- **Create the api gateway called test-api**:
+- **Create an SQS queue named test-queue**:
 
   ```sh
-  awslocal apigateway create-rest-api --name test-api
+  awslocal sqs create-queue --queue-name test-queue
+  # Output:
+  # {
+  #    "QueueUrl": "http://localhost:4566/000000000000/test-queue"
+  # }
+  ```
+
+- **Send a message to the SQS created above**:
+
+  ```sh
+  awslocal sqs send-message --queue-url http://localhost:4566/000000000000/test-queue --message-body "test message." --delay-seconds 0
+  # Output:
+  # {
+  #     "MD5OfMessageBody": "5cbd04aaf0430ff7fac38ebd11b72083",
+  #     "MessageId": "3a110fce-513c-b6f2-6059-05e145fe60db"
+  # }
+  ```
+
+- **Receive the sent message from the SQS**:
+
+  ```sh
+  awslocal sqs receive-message --queue-url http://localhost:4566/000000000000/test-queue --attribute-names All --message-attribute-names All
+  # Output:
+  # {
+  #     "Messages": [
+  #         {
+  #             "MessageId": "3a110fce-513c-b6f2-6059-05e145fe60db",
+  #             "ReceiptHandle": "uzbggdbobhtkovufriitjvjvrhfdemzqsgluxmohpuxjudarizabcmihywrvvfmmywamuogkhflgbtcpmlesijjeqviorfjwkooppbzqokazqkxhzciqbeiwvvtqqjamoxjmxuviwstjfuoqxafpdntlakygqkefzssemqzbvvkmlinznphlvoepn",
+  #             "MD5OfBody": "5cbd04aaf0430ff7fac38ebd11b72083",
+  #             "Body": "test message.",
+  #             "Attributes": {
+  #                 "SenderId": "AIDAIT2UOQQY3AUEKVGXU",
+  #                 "SentTimestamp": "1648234565152",
+  #                 "ApproximateReceiveCount": "1",
+  #                 "ApproximateFirstReceiveTimestamp": "1648234611377"
+  #             }
+  #         }
+  #     ]
+  # }
   ```
 
 ### Lambda
@@ -113,24 +151,12 @@ docker-compose up localstack
   awslocal lambda create-function --function-name test-function --runtime python3.7 --zip-file fileb://test.zip --handler test.lambda_handler --role test
   ```
 
-### SQS
+### API Gateway
 
-- **Create an SQS queue named test-queue**:
-
-  ```sh
-  awslocal sqs create-queue --queue-name test-queue
-  ```
-
-- **Send a message to the SQS created above**:
+- **Create the api gateway called test-api**:
 
   ```sh
-  awslocal sqs send-message --queue-url http://localhost:4566/000000000000/test-queue --message-body "test message." --delay-seconds 0
-  ```
-
-- **Receive the sent message from the SQS**:
-
-  ```sh
-  awslocal sqs receive-message --queue-url http://localhost:4566/000000000000/test-queue --attribute-names All --message-attribute-names All
+  awslocal apigateway create-rest-api --name test-api
   ```
 
 ### Secrets manager
@@ -147,3 +173,4 @@ docker-compose up localstack
 - [AWS](https://aws.amazon.com/pt/blogs/big-data/developing-aws-glue-etl-jobs-locally-using-a-container/)
 - [learnbatta](https://learnbatta.com/blog/aws-localstack-with-docker-compose/)
 - [geekhunter](https://blog.geekhunter.com.br/aws-lambda-python-pycharm-localstack/)
+- [manomano](https://medium.com/manomano-tech/using-serverless-framework-localstack-to-test-your-aws-applications-locally-17748ffe6755)
