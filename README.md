@@ -200,6 +200,26 @@ awslocal --endpoint=http://localhost:4566 secretsmanager get-secret-value \
   --secret-id test-secret
 ```
 
+## AWS CLI
+
+- **Version**:
+
+  ```sh
+  docker run --rm -it amazon/aws-cli --version
+  ```
+
+- **Check buckets**:
+
+  ```sh
+  docker run --rm -it -v ~/.aws:/root/.aws amazon/aws-cli command
+  docker run  \
+        -e AWS_ACCESS_KEY_ID=test \
+        -e AWS_SECRET_ACCESS_KEY=test \
+        -e AWS_DEFAULT_REGION=us-east-1 \
+        --rm \
+        amazon/aws-cli --endpoint-url=http://host.docker.internal:4566 s3 ls
+  ```
+
 ## References
 
 - [ciaranevans](https://github.com/ciaranevans/aws-guild-localstack)
@@ -209,3 +229,6 @@ awslocal --endpoint=http://localhost:4566 secretsmanager get-secret-value \
 - [geekhunter](https://blog.geekhunter.com.br/aws-lambda-python-pycharm-localstack/)
 - [manomano](https://medium.com/manomano-tech/using-serverless-framework-localstack-to-test-your-aws-applications-locally-17748ffe6755)
 - [thomsdacosta](https://thomsdacosta.medium.com/localstack-ambiente-local-para-testar-a-sua-aplica%C3%A7%C3%A3o-aws-4bc255e3ab56)
+- [trainingcenter](https://medium.com/trainingcenter/localstack-testando-servi%C3%A7os-aws-7f9f24de293c)
+- [hands-on.cloud](https://hands-on.cloud/testing-python-aws-applications-using-localstack/)
+- [stackoverflow](https://stackoverflow.com/questions/65869335/unable-to-connect-to-a-localstack-docker-instance-on-a-windows-10-machine-unab)
