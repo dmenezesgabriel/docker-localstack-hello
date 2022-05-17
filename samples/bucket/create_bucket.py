@@ -7,7 +7,6 @@ region=us-east-1
 """
 import json
 import logging
-import os
 
 import boto3
 
@@ -15,7 +14,7 @@ AWS_REGION = "us-east-1"
 AWS_PROFILE = "localstack"
 AWS_ACCESS_KEY_ID = "test"
 AWS_SECRET_ACCESS_KEY = "test"
-ENDPOINT_URL = os.environ.get("http://localhost:4566")
+ENDPOINT_URL = "http://localhost:4566"
 
 DEFAULT_LOG_FORMAT = (
     "[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d]"

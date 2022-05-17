@@ -202,20 +202,22 @@ awslocal --endpoint=http://localhost:4566 secretsmanager get-secret-value \
 
 ## AWS CLI
 
-- **version**:
+- **Version**:
 
   ```sh
   docker run --rm -it amazon/aws-cli --version
   ```
 
-- **Configure profile**:
+- **Check buckets**:
 
   ```sh
-  docker run --rm -it amazon/aws-cli configure --profile localstack
-  # AWS Access Key ID [None]: test
-  # AWS Secret Access Key [None]: test
-  # Default region name [None]: us-east-1
-  # Default output format [None]:
+  docker run --rm -it -v ~/.aws:/root/.aws amazon/aws-cli command
+  docker run  \
+        -e AWS_ACCESS_KEY_ID=test \
+        -e AWS_SECRET_ACCESS_KEY=test \
+        -e AWS_DEFAULT_REGION=us-east-1 \
+        --rm \
+        amazon/aws-cli --endpoint-url=http://host.docker.internal:4566 s3 ls
   ```
 
 ## References
