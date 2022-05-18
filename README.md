@@ -233,3 +233,4 @@ awslocal --endpoint=http://localhost:4566 secretsmanager get-secret-value \
 - [hands-on.cloud](https://hands-on.cloud/testing-python-aws-applications-using-localstack/)
 - [stackoverflow](https://stackoverflow.com/questions/65869335/unable-to-connect-to-a-localstack-docker-instance-on-a-windows-10-machine-unab)
 - [hands-on.cloud](https://hands-on.cloud/testing-python-aws-applications-using-localstack/)
+- [static site hosting issue github](https://github.com/localstack/localstack/issues/854)

@@ -48,17 +48,17 @@ services:
   # AWS Glue
   # Widely used as serverless ETL
   # ========================================================================= #
-  aws-glue:
-    image: amazon/aws-glue-libs:glue_libs_1.0.0_image_01
-    container_name: "aws-glue"
-    build:
-      context: ./services/aws_glue
-      dockerfile: Dockerfile
-    ports:
-      - "8000:8000"
-    volumes:
-      - .:/opt
-    links:
-      - localstack
-    environment:
-      S3_ENDPOINT: http://localstack:4566
+  # aws-glue:
+  #   image: amazon/aws-glue-libs:glue_libs_1.0.0_image_01
+  #   container_name: "aws-glue"
+  #   build:
+  #     context: ./services/aws_glue
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8000:8000"
+  #   volumes:
+  #     - .:/opt
+  #   links:
+  #     - localstack
+  #   environment:
+  #     S3_ENDPOINT: http://localstack:4566
