@@ -1,4 +1,3 @@
-import json
 import logging
 
 import boto3
@@ -20,7 +19,8 @@ logging.basicConfig(level=logging.INFO, format=DEFAULT_LOG_FORMAT)
 boto3.setup_default_session(
     profile_name=AWS_PROFILE,
 )
-s3_client = boto3.client(
+
+s3_resource = boto3.resource(
     "s3",
     region_name=AWS_REGION,
     endpoint_url=ENDPOINT_URL,
@@ -29,15 +29,21 @@ s3_client = boto3.client(
 )
 
 
-def create_bucket(bucket_name: str) -> dict | None:
+def list_buckets():
     """
-    Creates a S3 Bucket
+    List s3 buckets
     """
-    return s3_client.create_bucket(Bucket=bucket_name)
+    try:
+        response = s3_resource.buckets.all()
+    except Exception as error:
+        logger.exception(error)
+        raise
+    else:
+        return response
 
 
 if __name__ == "__main__":
-    bucket_name = "create-bucket-sample"
-    logger.info("Creating S3 bucket locally using LocalStack...")
-    bucket_creation_response = create_bucket(bucket_name)
-    logger.info(json.dumps(bucket_creation_response, indent=4) + "\n")
+    buckets_list = list_buckets()
+    print("Buckets: ")
+    for bucket in buckets_list:
+        print(bucket.name)
