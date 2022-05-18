@@ -21,10 +21,10 @@ awslocal s3 ls
 4. Copy file to bucket
 
 ```sh
-awslocal s3 sync ./samples/static_site_s3 s3://static-site-bucket --acl public-read
+awslocal s3 sync ./samples/s3/statict_site_hosting s3://static-site-bucket --acl public-read
 ```
 
-5. Copy file to bucket
+5. Define site index
 
 ```sh
 awslocal s3 website s3://static-site-bucket --index-document public/index.html
