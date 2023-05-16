@@ -32,3 +32,7 @@ Measure: IOPS (Input/ Output per second)
 - ST1: HDD, cannot be used to boot an Operational System
 - SC1: Cold HDD, for infrequent access, it cannot be used to boot an operational system.
 - Magnet (Standard): It accepts to boot operational system
+
+## Images
+
+AMI - Amazon Machine Image

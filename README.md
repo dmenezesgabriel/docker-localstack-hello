@@ -1,5 +1,7 @@
 # localstack-sdx
 
+Local Amazon Web Services (AWS)
+
 ## Requirements
 
 - Docker
