@@ -1,1 +1,4 @@
 venv/
+.aws
+.glue_jupyter_workspace
+temp/

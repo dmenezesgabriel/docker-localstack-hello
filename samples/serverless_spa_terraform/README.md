@@ -173,86 +173,146 @@ Now, let's provision our AWS infrastructure using Terraform. We'll create an S3 
 
    ```terraform
    terraform {
-   required_providers {
+     required_providers {
        aws = {
-       source = "hashicorp/aws"
-       version = "~> 3.0"
+         source  = "hashicorp/aws"
+         version = "~> 3.0"
        }
-   }
+     }
    }
 
    provider "aws" {
-   region = "us-west-2"
+     region = "us-west-2"
    }
 
    resource "aws_s3_bucket" "todo_app_bucket" {
-   bucket = "my-todo-app-bucket"
+     bucket = "my-todo-app-bucket"
    }
 
    resource "aws_dynamodb_table" "todo_app_table" {
-   name           = "TodoAppTable"
-   billing_mode   = "PAY_PER_REQUEST"
-   hash_key       = "id"
-   attribute {
+     name           = "TodoAppTable"
+     billing_mode   = "PAY_PER_REQUEST"
+     hash_key       = "id"
+     attribute {
        name = "id"
        type = "S"
-   }
+     }
    }
 
    resource "aws_apigatewayv2_api" "todo_app_api" {
-   name = "TodoAppAPI"
+     name = "TodoAppAPI"
    }
 
    resource "aws_apigatewayv2_integration" "todo_app_integration" {
-   api_id             = aws_apigatewayv2_api.todo_app_api.id
-   integration_type   = "AWS_PROXY"
-   integration_uri    = aws_lambda_function.todo_app_lambda.arn
-   integration_method = "POST"
+     api_id             = aws_apigatewayv2_api.todo_app_api.id
+     integration_type   = "AWS_PROXY"
+     integration_uri    = aws_lambda_function.todo_app_lambda.arn
+     integration_method = "POST"
    }
 
    resource "aws_apigatewayv2_route" "todo_app_route" {
-   api_id    = aws_apigatewayv2_api.todo_app_api.id
-   route_key = "ANY /{proxy+}"
-   target    = "integrations/${aws_apigatewayv2_integration.todo_app_integration.id}"
+     api_id    = aws_apigatewayv2_api.todo_app_api.id
+     route_key = "ANY /{proxy+}"
+     target    = "integrations/${aws_apigatewayv2_integration.todo_app_integration.id}"
+   }
+
+   resource "aws_iam_role" "lambda_execution_role" {
+     name = "TodoAppLambdaExecutionRole"
+
+     assume_role_policy = <<EOF
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "lambda.amazonaws.com"
+         },
+         "Action": "sts:AssumeRole"
+       }
+     ]
+   }
+   EOF
+   }
+
+   resource "aws_iam_policy" "lambda_policy" {
+     name        = "TodoAppLambdaPolicy"
+     description = "Permissions for the TodoAppLambda function"
+
+     policy = <<EOF
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Action": [
+           "s3:GetObject",
+           "s3:PutObject",
+           "s3:DeleteObject"
+         ],
+         "Resource": "arn:aws:s3:::my-todo-app-bucket/*"
+       },
+       {
+         "Effect": "Allow",
+         "Action": [
+           "dynamodb:Scan",
+           "dynamodb:GetItem",
+           "dynamodb:PutItem",
+           "dynamodb:UpdateItem",
+           "dynamodb:DeleteItem"
+         ],
+         "Resource": "arn:aws:dynamodb:us-west-2:123456789012:table/TodoAppTable"
+       }
+     ]
+   }
+   EOF
+   }
+
+   resource "aws_iam_role_policy_attachment" "lambda_policy_attachment" {
+     role       = aws_iam_role.lambda_execution_role.name
+     policy_arn = aws_iam_policy.lambda_policy.arn
    }
 
    resource "aws_lambda_function" "todo_app_lambda" {
-   function_name = "TodoAppLambda"
-   runtime = "nodejs14.x"
-   handler = "index.handler"
-   timeout = 5
+     function_name = "TodoAppLambda"
+     runtime       = "nodejs14.x"
+     handler       = "index.handler"
+     timeout       = 5
 
-   lifecycle {
+     role = aws_iam_role.lambda_execution_role.arn
+
+     lifecycle {
        create_before_destroy = true
-   }
+     }
 
-   depends_on = [aws_s3_bucket.todo_app_bucket, aws_dynamodb_table.todo_app_table]
+     depends_on = [aws_s3_bucket.todo_app_bucket, aws_dynamodb_table.todo_app_table]
 
-   provisioner "local-exec" {
+     provisioner "local-exec" {
        command = "npm run build && cd dist && zip -r ../todo-app.zip ."
-   }
+     }
 
-   provisioner "local-exec" {
+     provisioner "local-exec" {
        command = "aws --endpoint-url=http://localhost:4566 s3 cp todo-app.zip s3://my-todo-app-bucket/todo-app.zip"
-   }
+     }
 
-   provisioner "local-exec" {
+     provisioner "local-exec" {
        command = <<EOT
-       aws --endpoint-url=http://localhost:4566 lambda create-function \
+         aws --endpoint-url=http://localhost:4566 lambda create-function \
            --function-name TodoAppLambda \
            --runtime nodejs14.x \
-           --role arn:aws:iam::123456789012:role/lambda-execution-role \
+           --role arn:aws:iam::123456789012:role/TodoAppLambdaExecutionRole \
            --handler index.handler \
            --memory-size 128 \
            --timeout 5 \
            --code S3Bucket=my-todo-app-bucket,S3Key=todo-app.zip
        EOT
-   }
+     }
    }
 
    output "api_gateway_endpoint" {
-   value = aws_apigatewayv2_api.todo_app_api.api_endpoint
+     value = aws_apigatewayv2_api.todo_app_api.api_endpoint
    }
+
    ```
 
 2. Create a new file called variables.tf in the project root directory with the following content:

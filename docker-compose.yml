@@ -39,7 +39,7 @@ services:
       # Data is not persisted between runs, s3 Buckets contents
       # can be preserved with DATA_DIR and "/tmp/localstack" volume
       # ===================================================================== #
-      - "${TMPDIR:-/tmp}/localstack:/tmp/localstack"
+      - "${TMPDIR:-./tmp}/localstack:/tmp/localstack"
       # ===================================================================== #
       # Docker is used extensively by LocalStack, access hosts's docker
       - "/var/run/docker.sock:/var/run/docker.sock"
@@ -51,9 +51,18 @@ services:
   # AWS Glue Docker images are x86_64 compatible and arm64 hosts are currently
   # not supported
   aws-glue:
-    image: amazon/aws-glue-libs:glue_libs_3.0.0_image_01
+    image: amazon/aws-glue-libs:glue_libs_4.0.0_image_01
     container_name: "aws-glue"
+    command: /home/glue_user/jupyter/jupyter_start.sh
+    environment:
+      - DISABLE_SSL=true
     ports:
-      - "8000:8000"
+      - "4040:4040" # Spark UI
+      - "18080:18080" # Spark Submit
+      - "8998:8998"
+      - "8888:8888" # Jupyter UI
     links:
       - localstack
+    volumes:
+      - ".aws:/home/glue_user/.aws"
+      - ".glue_jupyter_workspace:/home/glue_user/workspace/jupyter_workspace/"
