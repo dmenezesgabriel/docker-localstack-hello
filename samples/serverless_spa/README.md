@@ -141,27 +141,33 @@ Set the Access Key ID and Secret Access Key to any values (they won't be used wi
 1. Create an S3 bucket:
 
    ```sh
-   aws --endpoint-url=http://localhost:4566 s3api create-bucket --bucket-name todo-app-bucket
+   awslocal --endpoint-url=http://localhost:4566 s3 mb s3://todo-app-bucket
    ```
 
 2. Create a DynamoDB table:
 
    ```sh
-   aws --endpoint-url=http://localhost:4566 dynamodb create-table --table-name todo-app-tasks --attribute-definitions AttributeName=id,AttributeType=N --key-schema AttributeName=id,KeyType=HASH --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5
+   awslocal --endpoint-url=http://localhost:4566 dynamodb create-table --table-name todo-app-tasks --attribute-definitions AttributeName=id,AttributeType=N --key-schema AttributeName=id,KeyType=HASH --billing-mode PAY_PER_REQUEST
+
    ```
 
 3. Create an IAM role for the Lambda function:
 
    ```sh
-   aws --endpoint-url=http://localhost:4566 iam create-role --role-name lambda-execution-role --assume-role-policy-document "{\"Version\": \"2012-10-17\",\"Statement\": [{\"Effect\": \"Allow\",\"Principal\": {\"Service\": \"lambda.amazonaws.com\"},\"Action\": \"sts:AssumeRole\"}]}"
+   awslocal --endpoint-url=http://localhost:4566 iam create-role --role-name lambda-execution-role --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{"Effect": "Allow","Principal": {"Service": "lambda.amazonaws.com"},"Action": "sts:AssumeRole"}]}'
+
    ```
 
 4. Attach the necessary policies to the IAM role:
 
    ```sh
-   aws --endpoint-url=http://localhost:4566 iam attach-role-policy --role-name lambda-execution-role --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
-   aws --endpoint-url=http://localhost:4566 iam attach-role-policy --role-name lambda-execution-role --policy-arn arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
+   awslocal --endpoint-url=http://localhost:4566 iam attach-role-policy --role-name lambda-execution-role --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+   awslocal --endpoint-url=http://localhost:4566 iam attach-role-policy --role-name lambda-execution-role --policy-arn arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
+
    ```
+
+   _arn refers to Amazon Resource Name_
 
 ## Step 6: Implementing the Lambda Function
 
@@ -228,59 +234,205 @@ Set the Access Key ID and Secret Access Key to any values (they won't be used wi
    zip -r lambda.zip .
    ```
 
+   _In Windows use GUI or instal MSYS2 to use zip command with `pacman -S zip`_
+
 4. Create the Lambda function:
 
    ```sh
-   aws --endpoint-url=http://localhost:4566 lambda create-function --function-name todo-app-lambda --runtime nodejs14.x --handler index.handler --role arn:aws:iam::123456789012:role/lambda-execution-role --zip-file fileb://lambda.zip
+   awslocal --endpoint-url=http://localhost:4566 lambda create-function --function-name todo-app-lambda --runtime nodejs14.x --handler index.handler --role arn:aws:iam::000000000000:role/lambda-execution-role --zip-file fileb://lambda.zip
+
    ```
+
+   _got IAM ARN from command output in 5.3 item of this tutorial._
 
 ## Step 7: Creating API Gateway
 
 1. Create an API Gateway REST API:
 
    ```sh
-   aws --endpoint-url=http://localhost:4566 apigateway create-rest-api --name todo-app-api
+   awslocal --endpoint-url=http://localhost:4566 apigateway create-rest-api --name todo-app-api
    ```
 
 2. Retrieve the API Gateway REST API ID:
 
    ```sh
-   aws --endpoint-url=http://localhost:4566 apigateway get-rest-apis
+   awslocal --endpoint-url=http://localhost:4566 apigateway get-rest-apis
    ```
 
-   Note down the value of the id field.
+   _Note down the value of the id field._
 
-3. Create a new API Gateway resource:
+   example output:
+
+   ```json
+   {
+     "id": "aqnnns34m4",
+     "name": "todo-app-api",
+     "createdDate": 1685232928.0,
+     "apiKeySource": "HEADER",
+     "endpointConfiguration": {
+       "types": ["EDGE"]
+     },
+     "disableExecuteApiEndpoint": false
+   }
+   ```
+
+3. Create new API Gateway resources:
+
+   **Get existing resources**:
 
    ```sh
-   aws --endpoint-url=http://localhost:4566 apigateway create-resource --rest-api-id <api-id> --parent-id <root-resource-id> --path-part todos
+   awslocal --endpoint-url=http://localhost:4566 apigateway get-resources --rest-api-id <api-id>
+   ```
+
+   _Example: `awslocal --endpoint-url=http://localhost:4566 apigateway get-resources --rest-api-id aqnnns34m4`_
+
+   Example output:
+
+   ```json
+   {
+     "items": [
+       {
+         "id": "3g6gi11nnl",
+         "path": "/"
+       }
+     ]
+   }
+   ```
+
+   **Create new resources**:
+
+   ```sh
+   awslocal --endpoint-url=http://localhost:4566 apigateway create-resource --rest-api-id <api-id> --parent-id <root-resource-id> --path-part todos
    ```
 
    Replace <api-id> with the REST API ID obtained from the previous step and <root-resource-id> with the id of the root resource (usually /').
 
-4. Create a new POST method for the /todos resource:
+   _Example: `awslocal --endpoint-url=http://localhost:4566 apigateway create-resource --rest-api-id aqnnns34m4 --parent-id 3g6gi11nnl --path-part todos`_
+
+   example output:
+
+   ```json
+   {
+     "id": "sls1wpqox9",
+     "parentId": "3g6gi11nnl",
+     "pathPart": "todos",
+     "path": "/todos"
+   }
+   ```
+
+   Replace <api-id> with the REST API ID obtained from the previous step and <root-resource-id> with the id of the root resource (usually /').
+
+4. Create a new GET method for the /todos resource:
 
    ```sh
-   aws --endpoint-url=http://localhost:4566 apigateway put-method --rest-api-id <api-id> --resource-id <todos-resource-id> --http-method POST --authorization-type NONE
+   awslocal --endpoint-url=http://localhost:4566 apigateway put-method --rest-api-id <api-id> --resource-id <todos-resource-id> --http-method GET --authorization-type NONE
    ```
 
    Replace <api-id> with the REST API ID and <todos-resource-id> with the id of the /todos resource obtained from the previous step.
 
-5. Create a new Lambda integration for the POST method:
+   _Example: `awslocal --endpoint-url=http://localhost:4566 apigateway put-method --rest-api-id aqnnns34m4 --resource-id sls1wpqox9 --http-method GET --authorization-type NONE`_
+
+   example output:
+
+   ```json
+   {
+     "type": "AWS_PROXY",
+     "httpMethod": "GET",
+     "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:000000000000:function:todo-app-lambda/invocations",
+     "requestParameters": {},
+     "cacheNamespace": "sls1wpqox9",
+     "cacheKeyParameters": []
+   }
+   ```
+
+5. Create a new POST method for the /todos resource:
 
    ```sh
-   aws --endpoint-url=http://localhost:4566 apigateway put-integration --rest-api-id <api-id> --resource-id <todos-resource-id> --http-method POST --type AWS_PROXY --integration-http-method POST --uri arn:aws:lambda:us-east-1:123456789012:function:todo-app-lambda
+   awslocal --endpoint-url=http://localhost:4566 apigateway put-method --rest-api-id <api-id> --resource-id <todos-resource-id> --http-method POST --authorization-type NONE
+   ```
+
+   Replace <api-id> with the REST API ID and <todos-resource-id> with the id of the /todos resource obtained from the previous step.
+
+   _Example: `awslocal --endpoint-url=http://localhost:4566 apigateway put-method --rest-api-id aqnnns34m4 --resource-id sls1wpqox9 --http-method POST --authorization-type NONE`_
+
+   example output:
+
+   ```json
+   {
+     "httpMethod": "POST",
+     "authorizationType": "NONE",
+     "apiKeyRequired": false
+   }
+   ```
+
+6. Create a new lambda integration for the GET method:
+
+   ```sh
+   awslocal --endpoint-url=http://localhost:4566 apigateway put-integration --rest-api-id aqnnns34m4 --resource-id sls1wpqox9 --http-method GET --type AWS_PROXY --integration-http-method GET --uri arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:000000000000:function:todo-app-lambda/invocations
+
+   ```
+
+7. Create a new Lambda integration for the POST method:
+
+   Retrieve you account id use the command below:
+
+   ```sh
+   awslocal sts get-caller-identity --query "Account" --output text
+   ```
+
+   Check created lambdas with the command below:
+
+   ```sh
+   awslocal lambda list-functions --query 'Functions[*].FunctionName' --output text
+   ```
+
+   Get lambda region and path:
+
+   ```sh
+    awslocal lambda get-function --function-name <function-name> --query 'Configuration.[FunctionArn, Runtime]'
+   ```
+
+   example output:
+
+   ```json
+   ["arn:aws:lambda:us-east-1:000000000000:function:todo-app-lambda", "nodejs14.x"]
+   ```
+
+   ```sh
+   awslocal --endpoint-url=http://localhost:4566 apigateway put-integration --rest-api-id <api-id> --resource-id <todos-resource-id> --http-method POST --type AWS_PROXY --integration-http-method POST --uri arn:aws:apigateway:<region>:lambda:path/2015-03-31/functions/arn:aws:lambda:<region>:<account-id>:function:todo-app-lambda/invocations
    ```
 
    Replace <api-id> with the REST API ID and <todos-resource-id> with the id of the /todos resource obtained from the previous steps.
 
-6. Deploy the API Gateway API:
+   _Example code: `awslocal --endpoint-url=http://localhost:4566 apigateway put-integration --rest-api-id aqnnns34m4 --resource-id sls1wpqox9 --http-method POST --type AWS_PROXY --integration-http-method POST --uri arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:000000000000:function:todo-app-lambda/invocations`_
+
+   ```json
+   {
+     "type": "AWS_PROXY",
+     "httpMethod": "POST",
+     "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:000000000000:function:todo-app-lambda/invocations",
+     "requestParameters": {},
+     "cacheNamespace": "sls1wpqox9",
+     "cacheKeyParameters": []
+   }
+   ```
+
+8. Deploy the API Gateway API:
 
    ```sh
-   aws --endpoint-url=http://localhost:4566 apigateway create-deployment --rest-api-id <api-id> --stage-name dev
+   awslocal --endpoint-url=http://localhost:4566 apigateway create-deployment --rest-api-id <api-id> --stage-name dev
    ```
 
    Replace <api-id> with the REST API ID obtained from previous steps.
+
+   example output:
+
+   ```json
+   {
+     "id": "oxy64561ga",
+     "createdDate": 1685241182.0
+   }
+   ```
 
 ## Step 8: Connecting the Vue App to the Serverless Backend
 
@@ -296,23 +448,28 @@ Set the Access Key ID and Secret Access Key to any values (they won't be used wi
        const tasks = ref([]);
        const newTask = ref("");
 
+       const apiId = "<api-id>"; // Replace with your actual REST API ID
+       const stage = "dev"; // Replace with your actual stage name
+
+       const apiEndpoint = `http://localhost:4566/restapis/${apiId}/${stage}/_user_request_`;
+
        const addTask = async () => {
          const task = {
            id: Date.now(),
            name: newTask.value,
          };
-         await axios.post("http://localhost:4566/restapis/<api-id>/dev/todos", task);
+         await axios.post(`${apiEndpoint}/todos`, task);
          tasks.value.push(task);
          newTask.value = "";
        };
 
        const deleteTask = async (taskId) => {
-         await axios.delete(`http://localhost:4566/restapis/<api-id>/dev/todos/${taskId}`);
+         await axios.delete(`${apiEndpoint}/todos/${taskId}`);
          tasks.value = tasks.value.filter((task) => task.id !== taskId);
        };
 
        onMounted(async () => {
-         const response = await axios.get("http://localhost:4566/restapis/<api-id>/dev/todos");
+         const response = await axios.get(`${apiEndpoint}/todos`);
          tasks.value = response.data;
        });
 
@@ -340,19 +497,40 @@ Set the Access Key ID and Secret Access Key to any values (they won't be used wi
 2. Upload the contents of the dist directory to the S3 bucket:
 
    ```sh
-   aws --endpoint-url=http://localhost:4566 s3 cp dist s3://todo-app-bucket/ --recursive
+   awslocal --endpoint-url=http://localhost:4566 s3 cp dist s3://todo-app-bucket/ --recursive
    ```
 
-3. Retrieve the S3 bucket website URL:
+3. Set the bucket's website configuration using the put-bucket-website command:
 
    ```sh
-   aws --endpoint-url=http://localhost:4566 s3api get-bucket-website --bucket todo-app-bucket
+   awslocal --endpoint-url=http://localhost:4566 s3api put-bucket-website --bucket todo-app-bucket --website-configuration '{
+     "IndexDocument": {"Suffix": "index.html"},
+     "ErrorDocument": {"Key": "error.html"}
+   }'
+
    ```
 
-   Note down the value of the Endpoint field.
+4. Retrieve the S3 bucket website URL:
+
+   ```sh
+   awslocal --endpoint-url=http://localhost:4566 s3api get-bucket-website --bucket todo-app-bucket
+   ```
+
+   example output:
+
+   ```json
+   {
+     "IndexDocument": {
+       "Suffix": "index.html"
+     },
+     "ErrorDocument": {
+       "Key": "error.html"
+     }
+   }
+   ```
 
 ## Step 10: Testing the Deployed App
 
-1. Open your browser and visit the S3 bucket website URL obtained from the previous step. You should see the deployed TODO app.
+1. Open your browser and visit the S3 bucket website URL `https://todo-app-bucket.s3-website.localhost.localstack.cloud:4566/` You should see the deployed TODO app.
 
 Congratulations! You have successfully created a simple TODO web app using Vue.js, composition API, and Vite. The app is hosted on an AWS serverless architecture, utilizing S3, API Gateway, Lambda Functions, DynamoDB, and CloudWatch Logs.

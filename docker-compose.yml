@@ -39,7 +39,7 @@ services:
       # Data is not persisted between runs, s3 Buckets contents
       # can be preserved with DATA_DIR and "/tmp/localstack" volume
       # ===================================================================== #
-      - "${TMPDIR:-./tmp}/localstack:/tmp/localstack"
+      - "${TMPDIR:-/tmp}/localstack:/tmp/localstack"
       # ===================================================================== #
       # Docker is used extensively by LocalStack, access hosts's docker
       - "/var/run/docker.sock:/var/run/docker.sock"
