@@ -32,7 +32,7 @@ services:
       # Data is not persisted between runs, s3 Buckets contents
       # can be preserved with DATA_DIR and "/tmp/localstack" volume
       # Local directory for saving persistent data
-      - DATA_DIR=${DATA_DIR-/tmp/localstack/data}
+      - DATA_DIR=${DATA_DIR-./data}:/tmp/localstack
       # ===================================================================== #
     volumes:
       # ===================================================================== #

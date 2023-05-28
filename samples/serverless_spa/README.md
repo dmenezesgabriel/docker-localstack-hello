@@ -151,14 +151,20 @@ Set the Access Key ID and Secret Access Key to any values (they won't be used wi
 
    ```
 
-3. Create an IAM role for the Lambda function:
+3. Verify if the table was created:
+
+   ```sh
+   awslocal --endpoint-url=http://localhost:4566 dynamodb list-tables --profile localstack
+   ```
+
+4. Create an IAM role for the Lambda function:
 
    ```sh
    awslocal --endpoint-url=http://localhost:4566 iam create-role --role-name lambda-execution-role --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{"Effect": "Allow","Principal": {"Service": "lambda.amazonaws.com"},"Action": "sts:AssumeRole"}]}'
 
    ```
 
-4. Attach the necessary policies to the IAM role:
+5. Attach the necessary policies to the IAM role:
 
    ```sh
    awslocal --endpoint-url=http://localhost:4566 iam attach-role-policy --role-name lambda-execution-role --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
@@ -244,6 +250,21 @@ Set the Access Key ID and Secret Access Key to any values (they won't be used wi
    ```
 
    _got IAM ARN from command output in 5.3 item of this tutorial._
+
+   Check if it is working:
+
+   ```sh
+   awslocal lambda invoke --function-name <function-name> --payload '{}' output.json
+   ```
+
+   example output:
+
+   ```json
+   {
+     "StatusCode": 200,
+     "ExecutedVersion": "$LATEST"
+   }
+   ```
 
 ## Step 7: Creating API Gateway
 
@@ -433,6 +454,12 @@ Set the Access Key ID and Secret Access Key to any values (they won't be used wi
      "createdDate": 1685241182.0
    }
    ```
+
+   ```sh
+   http://localhost:4566/restapis/aqnnns34m4/dev/_user_request_/todos
+   ```
+
+   [Troubeshooting](https://docs.aws.amazon.com/pt_br/apigateway/latest/developerguide/http-api-troubleshooting-lambda.html)
 
 ## Step 8: Connecting the Vue App to the Serverless Backend
 
