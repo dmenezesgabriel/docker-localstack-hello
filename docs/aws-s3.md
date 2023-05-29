@@ -1,5 +1,20 @@
 # S3 - Simple Storage Service
 
+Aws storages examples:
+
+- S3
+- EFS
+- Glacier
+- Storage Gateway
+- Snowball
+- Snowmobile
+- cloudFront
+- RDS
+- DynamoDB
+- Redshift
+- ElastiCache
+- Neptune
+
 ## Description
 
 - Storage any type of files (5 Terabytes for file)

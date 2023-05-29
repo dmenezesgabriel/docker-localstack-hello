@@ -36,3 +36,13 @@ Measure: IOPS (Input/ Output per second)
 ## Images
 
 AMI - Amazon Machine Image
+
+## ECS
+
+### EC2 managed
+
+- EC2 Container Service
+
+### Fargate
+
+- Serverless
