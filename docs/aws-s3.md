@@ -76,3 +76,18 @@ Object Base
 - Glacier Insant Retrival: For backup purposes, it takes from 1 to 5 minutes to retrieve a file.
 - Glacier Deep Archive: For backup purposes, it takes from 12 to 48 hours to retrieve a file.
 - S3 Outposts: For on-premises applications.
+
+### Glacier
+
+#### Retrieval Options of Glaciert
+
+- Expedited: 1 to 5 minutes
+- Standard: 3 to 5 hours
+- Bulk: 5 to 12 hours
+
+### Glacier Deep Archive
+
+#### Retrieval Options of Deep Archive
+
+- Standard: 12 hours
+- Bulk: 48 hours
