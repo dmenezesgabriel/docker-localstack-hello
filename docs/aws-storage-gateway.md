@@ -10,6 +10,6 @@
 
 - File Gateway (NFS): Store and retrieve objects as files using NFSv3 or NFSv4.1 protocol.
 - Volume Gateway (iSCSI): Store data in volumes using the iSCSI block protocol.
-  - Stored Volumes: Entire dataset is stored on-site and asynchronously backed up to S3.
-  - Cached Volumes: Entire dataset is stored on S3 and the most frequently accessed data is cached on-site.
+- Stored Volumes: Entire dataset is stored on-site and asynchronously backed up to S3.
+- Cached Volumes: Entire dataset is stored on S3 and the most frequently accessed data is cached on-site.
 - Tape Gateway (VTL): Backup data in the cloud using industry-standard storage protocols, that is, iSCSI and VTL.
