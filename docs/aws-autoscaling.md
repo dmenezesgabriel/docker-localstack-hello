@@ -18,6 +18,10 @@ Scaling Policies are used to scale an Auto Scaling group based on a metric.
 
 Target Tracking Scaling Policy is used to scale an Auto Scaling group based on a target value for a specific metric.
 
+It is triggered according to the traffic load.
+
 ### Step Scaling Policy
 
 Step Scaling Policy is used to scale an Auto Scaling group based on a set of scaling adjustments, known as step adjustments, that vary based on the size of the alarm breach.
+
+It is triggered when a CloudWatch alarm is triggered.
