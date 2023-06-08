@@ -126,3 +126,21 @@ Object Base
 - Glacier Select: Retrieve only a part of a file.
 - Athena: Query data in S3.
 - Redshift Spectrum: Query data in S3.
+
+## Versioning
+
+- Keep versions of files.
+
+## Access Management
+
+- Private by default.
+
+### Resource Based Policies
+
+- Bucket Policy: Written in JSON, can be attached to IAM users, groups or roles.
+- Access Control List (ACL): Legacy mode, not recommended.
+- Query string authentication
+
+### User Based Policies
+
+- IAM Policies
