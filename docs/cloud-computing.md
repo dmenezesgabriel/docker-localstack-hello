@@ -1,5 +1,7 @@
 # Cloud Computing
 
+On-demand delivery of IT resources and applications through the internet with pay-as-you-go pricing
+
 ## Infrastructure as a Service (IaaS)
 
 - Provides computing infrastructure, physical or (more often) virtual machines and other resources.
