@@ -12,7 +12,7 @@
 
 ### Availability Zones (AZ)
 
-Is a logical data center in a region, each AZ is supported by one or more physical data centers nearby, with redundant power, networking and connectivity, housed in separate facilities.
+Is a logical data center in a region, each AZ is supported by one or more physical data centers nearby, with redundant power, networking and connectivity, housed in separate facilities. Partitioned applications can be deployed across multiple AZs to achieve high availability and also to be protected against natural disasters like floods, tornados, earthquakes, etc.
 
 - north
 - east

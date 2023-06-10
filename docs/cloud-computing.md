@@ -13,3 +13,7 @@ On-demand delivery of IT resources and applications through the internet with pa
 ## Software as a Service (SaaS)
 
 - Provides software applications over the Internet, on demand and typically on a subscription basis.
+
+## Multitenancy
+
+- A reference to the mode of operation of software where multiple independent instances of one or multiple applications operate in a shared environment.
