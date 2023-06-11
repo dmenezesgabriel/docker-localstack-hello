@@ -41,9 +41,10 @@ Compute optimized instances are ideal for compute-bound applications that benefi
 
 - High performance web servers
 - High performance computing (HPC)
-- Scientific modeling
+- Scientific modelin/1g
 - Dedicated gaming servers
 - Machine learning inference
+- Batch processing workloads
 
 ### Memory Optimized
 
@@ -169,4 +170,4 @@ This model works like an auction, where you bid for the price you are willing to
 
 Dedicated Hosts are physical servers with EC2 instance capacity fully dedicated to your use. Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 
-This model works like a contract, where you commit to a consistent amount of compute usage (measured in $/hour) for a 1 or 3 year term, and in exchange you receive a discount on that usage.
+This model works like a contract, where you commit to a consistent amount of compute usage (measured in $/hour) for a **1 or 3** year term, and in exchange you receive a discount on that usage.
