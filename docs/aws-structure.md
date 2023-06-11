@@ -4,6 +4,8 @@
 
 ## Region
 
+Regions are geographical areas divided by AWS to host their services. Each region is a separate geographic area. Each region has multiple, isolated locations known as Availability Zones. Each region is completely independent. Each Availability Zone is isolated, but the Availability Zones in a region are connected through low-latency links. Each Availability Zone is designed as an independent failure zone. This means that Availability Zones are physically separated within a typical metropolitan region and are located in lower-risk flood plains (specific flood zone categorization varies by Region). In addition to discrete uninterruptible power supply (UPS) and onsite backup generation facilities, they are each fed via different grids from independent utilities to further reduce single points of failure. Availability Zones are all redundantly connected to multiple tier-1 transit providers.
+
 - America/Sao_Paulo
 - America/New_York
 - Europe/London
@@ -33,14 +35,23 @@ Example:
 - us-east-1c
 - us-east-1d
 
-### Edge Locations
+### Advices
 
-- Smaller Data Centers
+- Always use more than one AZ in a region.
 
-Purpose:
+## Edge Locations
 
-static information
+An edge location is a site that Amazon CloudFront uses to cache copies of your content for faster delivery to users at any location. There are more edge locations than regions.
 
-- caching
-- cdn
-- cloud front
+### Use cases
+
+- Distribute content to end users with low latency
+- Deliver streaming videos
+- Distribute software and game updates
+- Provide a secure, fast, and reliable way to put your data in AWS
+
+### Services
+
+- [Route 53](aws-route53.md)
+- [CloudFront](aws-cloudfront.md)
+- [AWS Outposts](aws-outposts.md)
