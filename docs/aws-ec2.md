@@ -13,7 +13,7 @@ Elastic Compute Cloud
 - Dedicated Hosts
 - Spot instances
 
-## Types
+## EC2 Types
 
 - c: Compute opt
 - g: Graphics
@@ -99,7 +99,7 @@ Elastic Block Storage is a storage device that can be attached to an EC2 instanc
 - 99.999% availability.
 - Automatically replicated within its Availability Zone to protect you from component failure, offering high availability and durability.
 
-#### Types
+#### EBS Types
 
 ##### SSD
 
@@ -138,3 +138,35 @@ Automates the creation, retention, and deletion of snapshots taken to back up yo
 ## AMI - Amazon Machine Image
 
 Provides the information required to launch an instance, which is a virtual server in the cloud. You must specify a source AMI when you launch an instance. You can launch multiple instances from a single AMI when you need multiple instances with the same configuration. You can use different AMIs to launch instances when you need instances with different configurations.
+
+## Pricing
+
+### On Demand
+
+On-Demand instances are ideal for short-term, irregular workloads that cannot be interrupted. No upfront payment or long-term commitment is required. You pay only for the hours that you use.
+
+This model works like a pay-as-you-go mobile phone plan: you pay for what you use and you pay for as long as you need it.
+
+### AWS EC2 Savings Plans
+
+Savings Plans is a flexible pricing model that provides savings of up to 72% on your AWS compute usage. This pricing model offers lower prices on Amazon EC2 instances usage, regardless of instance family, size, OS, tenancy or AWS Region, and also applies to AWS Fargate usage.
+
+This model works like a contract, where you commit to a consistent amount of compute usage (measured in $/hour) for a 1 or 3 year term, and in exchange you receive a discount on that usage. You can choose between two different types of Savings Plans: Compute Savings Plans and EC2 Instance Savings Plans.
+
+### Reserved Instances
+
+Reserved Instances provide you with a significant discount (up to 75%) compared to On-Demand instance pricing. In addition, when Reserved Instances are assigned to a specific Availability Zone, they provide a capacity reservation, giving you additional confidence in your ability to launch instances when you need them.
+
+This model works like a contract, where you commit to a consistent amount of compute usage (measured in $/hour) for a 1 or 3 year term, and in exchange you receive a discount on that usage. You can choose between two different types of Reserved Instances: Standard Reserved Instances and Convertible Reserved Instances.
+
+### Spot Instances
+
+Spot Instances allow you to request spare Amazon EC2 computing capacity for up to 90% off the On-Demand price. Spot Instances are available at a discount compared to On-Demand pricing, and you pay the Spot price that's in effect for the time period your instances are running. Spot Instances are a cost-effective choice if you can be flexible about when your applications run and if your applications can be interrupted.
+
+This model works like an auction, where you bid for the price you are willing to pay for a compute capacity. If the current Spot price is lower than your bid, your instances will run. If the Spot price goes above your bid, your instances will be terminated.
+
+### Dedicated Hosts
+
+Dedicated Hosts are physical servers with EC2 instance capacity fully dedicated to your use. Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
+
+This model works like a contract, where you commit to a consistent amount of compute usage (measured in $/hour) for a 1 or 3 year term, and in exchange you receive a discount on that usage.
