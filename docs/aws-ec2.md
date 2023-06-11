@@ -13,7 +13,7 @@ Elastic Compute Cloud
 - Dedicated Hosts
 - Spot instances
 
-## siglas
+## Types
 
 - c: Compute opt
 - g: Graphics
@@ -25,6 +25,54 @@ Elastic Compute Cloud
 - t: web servers
 - p: gpu (ex: mining)
 - x: memory (ex: apache)
+
+### General Purpose
+
+General purpose instances provide a balance of compute, memory, and networking resources, and can be used for a variety of diverse workloads, such as:
+
+- Small and mid-size databases
+- application servers
+- gaming servers
+- backend servers for enterprise applications
+
+### Compute Optimized
+
+Compute optimized instances are ideal for compute-bound applications that benefit from high-performance processors. Compute optimized instances are well suited for compute-intensive applications such as:
+
+- High performance web servers
+- High performance computing (HPC)
+- Scientific modeling
+- Dedicated gaming servers
+- Machine learning inference
+
+### Memory Optimized
+
+Memory optimized instances are designed to deliver fast performance for workloads that process large data sets in memory. Memory optimized instances are ideal for high-performance databases, distributed web scale in-memory caches, mid-size in-memory databases, real time big data analytics, and other enterprise applications.
+
+### Accelerated Computing
+
+Accelerated computing instances use hardware accelerators, or co-processors, to perform some functions, such as floating point number calculations, graphics processing, or data pattern matching, more efficiently than is possible in software running on CPUs. Accelerated computing instances are ideal for workloads such as:
+
+- Graphics applications
+- Game streaming
+- Application streaming
+- Video encoding
+- Data visualization
+- High performance computing (HPC)
+- Machine learning inference
+
+#### CPU vs GPU
+
+- **CPU**: CPUs are ideal for tasks that require high single-threaded performance, such as general-purpose computing, web browsing, office applications, and running most software applications.
+- **GPU**: GPUs are ideal for tasks that involve parallel processing, such as gaming, video editing, 3D rendering, machine learning, cryptocurrency mining, and scientific simulations. They excel in applications that can split large amounts of data into smaller tasks that can be processed simultaneously.
+
+### Storage Optimized
+
+Storage optimized instances are designed for workloads that require high, sequential read and write access to very large data sets on local storage. They are optimized to deliver tens of thousands of low-latency, random I/O operations per second (IOPS) to applications. Storage optimized instances are ideal for high frequency online transaction processing (OLTP) systems, relational and NoSQL databases, cache for in-memory databases, data warehousing applications, distributed file systems, and big data workload
+
+#### IOPS
+
+IOPS (Input/Output Operations Per Second, pronounced eye-ops) is a common performance measurement used to benchmark computer storage devices like hard disk drives (HDD), solid state drives (SSD), and storage area networks (SAN). As the name implies, IOPS measures the maximum number of reads and writes to non-contiguous storage locations. For example, a hard drive with 200 IOPS can perform 200 data transfers per second.
 
 ## Storages (Volumes)
 
