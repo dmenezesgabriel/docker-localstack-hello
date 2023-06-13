@@ -43,6 +43,17 @@ Example:
 
 An edge location is a site that Amazon CloudFront uses to cache copies of your content for faster delivery to users at any location. There are more edge locations than regions.
 
+### Services
+
+- [CloudFront](aws-cloudfront.md)
+- [Route 53](aws-route53.md)
+- [Lambda@Edge](aws-lambda.md#lambdaedge)
+- [API Gateway](aws-api-gateway.md)
+- [WAF & Shield](aws-waf.md)
+- [S3 Transfer Acceleration](aws-s3.md#transfer-acceleration)
+- [Direct Connect](aws-direct-connect.md)
+- ...
+
 ### Use cases
 
 - Distribute content to end users with low latency

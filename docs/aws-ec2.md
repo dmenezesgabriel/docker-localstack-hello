@@ -13,18 +13,10 @@ Elastic Compute Cloud
 - Dedicated Hosts
 - Spot instances
 
-## EC2 Types
+## Instance Types
 
-- c: Compute opt
-- g: Graphics
-- d: Dense storage
-- r: Memory opt
-- m: General
-- i: High speed storage
-- f: Programming
-- t: web servers
-- p: gpu (ex: mining)
-- x: memory (ex: apache)
+[EC2 Instance Types](https://aws.amazon.com/pt/ec2/instance-types/)
+[Instances detail](https://instances.vantage.sh/)
 
 ### General Purpose
 
@@ -34,6 +26,8 @@ General purpose instances provide a balance of compute, memory, and networking r
 - application servers
 - gaming servers
 - backend servers for enterprise applications
+
+Prefixes: A, T, M
 
 ### Compute Optimized
 
@@ -46,9 +40,13 @@ Compute optimized instances are ideal for compute-bound applications that benefi
 - Machine learning inference
 - Batch processing workloads
 
+Prefixes: C
+
 ### Memory Optimized
 
 Memory optimized instances are designed to deliver fast performance for workloads that process large data sets in memory. Memory optimized instances are ideal for high-performance databases, distributed web scale in-memory caches, mid-size in-memory databases, real time big data analytics, and other enterprise applications.
+
+Prefixes: R, X
 
 ### Accelerated Computing
 
@@ -62,6 +60,8 @@ Accelerated computing instances use hardware accelerators, or co-processors, to 
 - High performance computing (HPC)
 - Machine learning inference
 
+Prefixes: P, G, F
+
 #### CPU vs GPU
 
 - **CPU**: CPUs are ideal for tasks that require high single-threaded performance, such as general-purpose computing, web browsing, office applications, and running most software applications.
@@ -70,6 +70,8 @@ Accelerated computing instances use hardware accelerators, or co-processors, to 
 ### Storage Optimized
 
 Storage optimized instances are designed for workloads that require high, sequential read and write access to very large data sets on local storage. They are optimized to deliver tens of thousands of low-latency, random I/O operations per second (IOPS) to applications. Storage optimized instances are ideal for high frequency online transaction processing (OLTP) systems, relational and NoSQL databases, cache for in-memory databases, data warehousing applications, distributed file systems, and big data workload
+
+Prefixes: I, D
 
 #### IOPS
 
