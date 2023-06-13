@@ -1,20 +1,5 @@
 # S3 - Simple Storage Service
 
-Aws storages examples:
-
-- S3
-- EFS
-- Glacier
-- Storage Gateway
-- Snowball
-- Snowmobile
-- cloudFront
-- RDS
-- DynamoDB
-- Redshift
-- ElastiCache
-- Neptune
-
 ## Description
 
 - Storage any type of files (5 Terabytes for file)
@@ -29,22 +14,28 @@ Aws storages examples:
 - Encryption
 - ACL
 
-## Components
+## Buckets
 
-Object Base
+A Bucket is a container for objects stored in Amazon S3. Every object is contained in a bucket. For example, if the object named photos/puppy.jpg is stored in the johnsmith bucket, then it is addressable using the URL http://johnsmith.s3.amazonaws.com/photos/puppy.jpg.
 
+- Each bucket name must be unique across all of Amazon S3.
+
+## Object Storage
+
+Object storage is a storage architecture that manages data as objects, as opposed to other storage architectures like file systems which manage data as a file hierarchy and block storage which manages data as blocks within sectors and tracks.
+
+### Object Structure
+
+- Data: Files
+- Metadata: File name, size, etc.
 - Key: File name
-- Value: File content
-- Version: File version (If enabled)
-- Metadata: Tag, local, etc
-- ACL
 
-## Tiers
+### Object Storage vs Block Storage
 
-- S3 Standard: Replicated for at least 2 availability zones, with 99.99% of availability and durability.
-- S3 IA (Infrequent Access): Cheaper, but with a access fee, replicated for at least 2 availability zones.
-- S3 One Zone: Similar with IA but with one availability zone.
-- Glacier: For backup purposes, it takes from 3 to 5 hours to retrieve a file.
+- Object Storage: Store files in buckets, with metadata and a key.
+- Block Storage: Store files in blocks, with a file system.
+
+When you modify a file in block storage, only the modified pieces are changed. In object storage, the entire file is replaced.
 
 ## Charges
 
@@ -53,10 +44,6 @@ Object Base
 - Storage management price (Tags, Versioning)
 - DTP (Data Transfer Pricing): Transfer between regions.
 - Transfer Acceleration: CDN, CloudFront
-
-## Buckets
-
-- Bucket name must be unique
 
 ## Security
 
@@ -68,30 +55,52 @@ Object Base
 - Signed URL: Generate a URL with expiration time to access a file
 - CORS: Allow access from another domain
 
-## Storage Classes
+## Storage Classes (Tiers)
 
-- S3 Standard: Replicated for at least 2 availability zones, with 99.99% of availability and durability.
-- S3 Intelligent Tiering: Automatically move files between tiers based on access frequency.
-- S3 Standard IA (Infrequently Accessed data): Cheaper, but with a access fee, replicated for at least 2 availability zones.
-- S3 One Zone IA (Infrequently Accessed data): Similar with IA but with one availability zone.
-- S3 Glacier Instant Retrieval: For backup purposes, it takes from 1 to 5 minutes to retrieve a file.
-- S3 Glacier Flexible Retrieval: For backup purposes, it takes from 5 to 12 hours to retrieve a file.
-- S3 Glacier Deep Archive: For backup purposes, it takes from 12 to 48 hours to retrieve a file.
+### S3 Standard
 
-### Glacier
+- Ideal for frequently accessed data that needs to be delivered with low latency and high throughput.
+- Stores data in a minimum of three Availability Zones (AZs) to protect against the loss of one or two facilities.
+- It is a good choice for a wide variety of use cases like cloud applications, dynamic websites, content distribution, mobile and gaming applications, and big data analytics.
 
-#### Retrieval Options of Glacier
+### S3 Standard-IA (Infrequent Access)
 
-- Expedited: 1 to 5 minutes
-- Standard: 3 to 5 hours
-- Bulk: 5 to 12 hours
+- Ideal for long-lived, but less frequently accessed data.
+- Similar to S3 Standard, but with a lower per GB storage price and a per GB retrieval fee.
+- It is a good choice for data that is accessed less frequently, but requires rapid access when needed. For example, backups and disaster recovery data.
+- Both S3 Standard and S3 Standard-IA store data in a minimum of three Availability Zones (AZs) to protect against the loss of one or two facilities.
 
-### Glacier Deep Archive
+### S3 One Zone-IA
 
-#### Retrieval Options of Deep Archive
+- Ideal for long-lived, but less frequently accessed data that doesn’t require the level of availability and resilience of S3 Standard or S3 Standard-IA.
+- Stores data in a single AZ and costs 20% less than S3 Standard-IA.
+- It is a good choice for secondary backup copies of on-premises data and for storing data you can recreate.
 
-- Standard: 12 hours
-- Bulk: 48 hours
+### S3 Intelligent-Tiering
+
+- Ideal for data with unknown or changing access patterns.
+- If you haven't accessed an object for 30 consecutive days, Amazon S3 moves it to the infrequent access tier. If you access an object in the infrequent access tier, Amazon S3 moves it back to the frequent access tier.
+- It is a good choice for data with unknown or changing access patterns, such as new data sets or data sets that are rarely accessed. It is also a good choice when you want to save costs on long-lived data sets for which access patterns are unknown or unpredictable.
+
+### S3 Glacier Instant Retrieval
+
+- Works well for data that is infrequently accessed, but requires rapid access when needed.
+
+### S3 Glacier Flexible Retrieval
+
+- Ideal for data that is rarely accessed like archives, which may be needed in minutes or hours.
+
+### S3 Glacier Deep Archive
+
+- Lowest cost storage class for data archiving. Ideal for long-term retention of data that is accessed once or twice a year.
+- Able to retrieve objects within 12 to 48 hours.
+- Data that might be accessed in a year or longer.
+
+### S3 Outposts
+
+- Create S3 buckets on-premises.
+- Use the same APIs and tools to manage data on-premises and in the cloud.
+- is designed to meet the needs of customers who have workloads that require low latency access to on-premises data and local data processing.
 
 ## Management Tools
 
@@ -102,6 +111,8 @@ Object Base
 ### S3 Lifecycle Policy
 
 - Move files between tiers based on access frequency.
+
+Example: Move files to IA after 30 days, and to Glacier after 60 days.
 
 ### S3 Cross Region Replication
 

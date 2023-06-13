@@ -5,6 +5,10 @@
 - Pay less to use more.
 - Pay even less when you reserve.
 
+## Description
+
+AWS Billing and Cost Management is the service that you use to pay your AWS bill, monitor your usage, and analyze and control your costs.
+
 ## CAPEX & OPEX
 
 - Capital Expenditure (CAPEX): Upfront payment to buy a physical server, and then pay for maintenance. Ex: reserved instances.
