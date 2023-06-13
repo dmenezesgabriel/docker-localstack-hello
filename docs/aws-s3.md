@@ -155,3 +155,9 @@ Example: Move files to IA after 30 days, and to Glacier after 60 days.
 ### User Based Policies
 
 - IAM Policies
+
+## EBS vs S3
+
+- Ocasional changes: S3
+- Backup: S3
+- Complex editing and high IO: EBS
