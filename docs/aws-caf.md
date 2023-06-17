@@ -78,3 +78,12 @@ Common roles:
 ## CAF Action Plan
 
 The AWS CAF Action Plan is a tool that helps you identify and address gaps in your cloud adoption plan. The Action Plan is a spreadsheet that you can download and use to track your progress as you implement the AWS CAF. The Action Plan is organized into three sections:
+
+## The 6 R's of migration
+
+- Rehosting (lift and shift)
+- Replatforming (lift, tinker and shift)
+- Retire
+- Retain
+- Repurchase
+- Refactoring
