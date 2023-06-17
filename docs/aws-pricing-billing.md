@@ -16,6 +16,8 @@ AWS Billing and Cost Management is the service that you use to pay your AWS bill
 
 ## Pricing Calculator
 
+> Create an estimate for the cost of your use cases on AWS.
+
 - [Pricing Calculator](https://calculator.aws/#/)
 
 Pricing Calculator lets you explore AWS services, and create an estimate for the cost of your use cases on AWS.
@@ -34,6 +36,8 @@ The Billing and Cost Management Dashboard displays the current status of your bi
 
 ## Consolidate Billing
 
+> Combine usage across accounts to receive volume pricing discounts.
+
 - [Consolidate Billing](https://console.aws.amazon.com/billing/home?#/account)
 
 Consolidated billing enables you to consolidate payment for multiple AWS accounts within your company by designating a single paying account. Consolidated billing is offered at no additional charge.
@@ -48,11 +52,15 @@ Consolidated billing enables you to consolidate payment for multiple AWS account
 
 ## Budgets
 
+> Review how much cost your predicted AWS usage will incur by the end of the month.
+
 - [Budgets](https://console.aws.amazon.com/billing/home?#/budgets)
 
 Budgets give you the ability to set custom budgets that alert you when your costs or usage exceed (or are forecasted to exceed) your budgeted amount.
 
 ## Cost Explorer
+
+> Visualize and manage your AWS costs and usage over time.
 
 - [Cost Explorer](https://console.aws.amazon.com/billing/home?#/costexplorer)
 
