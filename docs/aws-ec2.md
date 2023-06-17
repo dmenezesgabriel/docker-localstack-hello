@@ -90,6 +90,10 @@ Provides the information required to launch an instance, which is a virtual serv
 
 ## Pricing
 
+With Amazon EC2, you pay for only the compute time you use while your instances are running. You are billed only for the instances you launch, and only for as long as they are running.
+
+For some workloads (e.g. web servers), you can use Amazon EC2 Spot Instances to take advantage of unused EC2 capacity in the AWS cloud. Spot Instances are available at up to a 90% discount compared to On-Demand prices.
+
 ### On Demand
 
 On-Demand instances are ideal for short-term, irregular workloads that cannot be interrupted. No upfront payment or long-term commitment is required. You pay only for the hours that you use.

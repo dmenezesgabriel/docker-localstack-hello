@@ -37,13 +37,12 @@ Object storage is a storage architecture that manages data as objects, as oppose
 
 When you modify a file in block storage, only the modified pieces are changed. In object storage, the entire file is replaced.
 
-## Charges
+## Pricing
 
-- Storage: Per Gigabyte
-- Request: Per Access
-- Storage management price (Tags, Versioning)
-- DTP (Data Transfer Pricing): Transfer between regions.
-- Transfer Acceleration: CDN, CloudFront
+- **Storage**: You pay only for the storage that you use. You are charged the rate to store objects in your Amazon S3 buckets based on your objects sizes, storage classes, and how long you have stored each object during the month.
+- **Request**: and data retrievals: Per You pay for requests made to your Amazon S3 objects and buckets. For example, suppose that you are storing photo files in Amazon S3. You are charged for each GET, LIST, or SELECT request made to Amazon S3. You are also charged for each GB of data scanned by SELECT requests.
+- **Data transfer**: There is no cost to transfer data between different Amazon S3 buckets or from Amazon S3 to any service within the same AWS Region. However, you pay for data that you transfer in or out of Amazon S3, with a few exceptions. There is no cost for data transferred into Amazon S3 from the internet or out to Amazon CloudFront. There is also no cost for data transferred out to an Amazon EC2 instance, when the instance is in the same AWS Region as the S3 bucket. Data transferred between Amazon S3 and Amazon Glacier in the same AWS Region is free.
+- **Management and replication**: You pay for the storage management features that you have enabled on your account's Amazon S3 buckets,. THese features include Amazon S3 Inventory, Amazon S3 Analytics, and Amazon S3 Object Tagging.
 
 ## Security
 

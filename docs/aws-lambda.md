@@ -7,3 +7,9 @@ AWS Lambda is a serverless compute service that runs your code in response to ev
 ### API Gateway
 
 API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. You can create an API that acts as a "front door" for applications to access data, business logic, or functionality from your back-end services, such as workloads running on Amazon Elastic Compute Cloud (Amazon EC2), code running on AWS Lambda, or any web application.
+
+## Pricing
+
+AWS Lambda pricing is based on the number of requests for your functions and the duration, the time it takes for your code to execute. The AWS Lambda free usage tier includes 1M free requests per month and 3.2 million seconds of compute time per month. For more information, see [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/).
+
+You can save on AWS Lambda costs by signing up for COmpute Saving Plans. A compute Savings Plan offers lower compute costs in exchange for committing to a consistent amount of usage over a 1-year or 3-year term. This is an example of paying less when you reserve. For more information, see [AWS Compute Savings Plans](https://aws.amazon.com/savingsplans/compute/).
