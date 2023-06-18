@@ -6,7 +6,14 @@ Inspector is an automated security assessment service that helps improve the sec
 
 ## Trusted Advisor
 
+- [Checks](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor-check-reference.html)
+
 Trusted Advisor is an online resource to help you reduce cost, increase performance, and improve security by optimizing your AWS environment. Trusted Advisor provides real time guidance to help you provision your resources following AWS best practices.
+
+Examples of checks:
+
+- MFA on root account
+- S3 bucket permissions
 
 ## CloudTrail
 

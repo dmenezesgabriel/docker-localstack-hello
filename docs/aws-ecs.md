@@ -1,6 +1,6 @@
 # ECS (Elastic Container Service)
 
-Elastic Container Service (ECS) is a container orchestration service that allows you to run Docker containers on a managed cluster of EC2 instances. ECS is a server-based compute service.
+Amazon ECS is a highly scalable, fast container management service that makes it easy to run, stop, and manage containers on a cluster.
 
 ## EC2 managed
 
@@ -9,3 +9,7 @@ Elastic Container Service (ECS) is a container orchestration service that allows
 ## Fargate
 
 - Serverless
+
+## Elastic Container Registry (ECR)
+
+Supports private container images. It does not manage the containers, only the images.

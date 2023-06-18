@@ -5,6 +5,7 @@ Elastic Compute Cloud
 ## Benefits
 
 - Eliminates upfront hardware investment
+- It can run customer managed databases
 
 ## Plans
 

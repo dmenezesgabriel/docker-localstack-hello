@@ -4,13 +4,17 @@
 
 ## Region
 
-Regions are geographical areas divided by AWS to host their services. Each region is a separate geographic area. Each region has multiple, isolated locations known as Availability Zones. Each region is completely independent. Each Availability Zone is isolated, but the Availability Zones in a region are connected through low-latency links. Each Availability Zone is designed as an independent failure zone. This means that Availability Zones are physically separated within a typical metropolitan region and are located in lower-risk flood plains (specific flood zone categorization varies by Region). In addition to discrete uninterruptible power supply (UPS) and onsite backup generation facilities, they are each fed via different grids from independent utilities to further reduce single points of failure. Availability Zones are all redundantly connected to multiple tier-1 transit providers.
+Regions are geographical areas divided by AWS to host their services. Each region is a separate geographic area. Each region has multiple, isolated locations known as Availability Zones. Each region is completely independent. Each Availability Zone is isolated, but the Availability Zones in a region are connected through low-latency links. Each Availability Zone is designed as an independent failure zone.
+
+A Region is a named set of AWS resources in the same geographic area. A Region comprises at least two Availability Zones. Regions would be the appropriate way to replicate data in a Disaster Recovery plan.
 
 - America/Sao_Paulo
 - America/New_York
 - Europe/London
 - Asia/Tokyo
 - ...
+
+Offers global storage and compute power implementation.
 
 ### Choosing a Region
 
@@ -21,7 +25,7 @@ Regions are geographical areas divided by AWS to host their services. Each regio
 
 ## Availability Zones (AZ)
 
-Is a logical data center in a region, each AZ is supported by one or more physical data centers nearby, with redundant power, networking and connectivity, housed in separate facilities. Partitioned applications can be deployed across multiple AZs to achieve high availability and also to be protected against natural disasters like floods, tornados, earthquakes, etc.
+Is a logical data center in a region, each AZ is supported by one or more physical data centers nearby, with redundant power, networking and connectivity, housed in separate facilities. Partitioned applications can be deployed across multiple AZs to achieve high availability.
 
 - north
 - east

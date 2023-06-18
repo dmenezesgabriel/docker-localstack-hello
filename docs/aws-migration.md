@@ -1,0 +1,9 @@
+# On-premisse to AWS Cloud migration
+
+## AWS Professional Services
+
+AWS Professional Services is a global team of experts that can help you realize your desired business outcomes when using the AWS Cloud. We work together with you to understand your business objectives and develop a plan to help you achieve them. We also provide guidance to help you avoid pitfalls and implement best practices, accelerating your journey to the cloud.
+
+## AWS Partner Network
+
+The AWS Partner Network (APN) is the global partner program for AWS. It is focused on helping APN Partners build successful AWS-based businesses or solutions by providing business, technical, marketing, and go-to-market support. APN Partners are focused on customer success, helping you take full advantage of all the business benefits that AWS has to offer. With their deep expertise on AWS, APN Partners are uniquely positioned to help your company at any stage of your Cloud Adoption Journey and to help you solve some of your most complex problems.

@@ -81,15 +81,19 @@ When you modify a file in block storage, only the modified pieces are changed. I
 - If you haven't accessed an object for 30 consecutive days, Amazon S3 moves it to the infrequent access tier. If you access an object in the infrequent access tier, Amazon S3 moves it back to the frequent access tier.
 - It is a good choice for data with unknown or changing access patterns, such as new data sets or data sets that are rarely accessed. It is also a good choice when you want to save costs on long-lived data sets for which access patterns are unknown or unpredictable.
 
-### S3 Glacier Instant Retrieval
+### S3 Glacier
+
+Enables encryption bu default
+
+#### S3 Glacier Instant Retrieval
 
 - Works well for data that is infrequently accessed, but requires rapid access when needed.
 
-### S3 Glacier Flexible Retrieval
+#### S3 Glacier Flexible Retrieval
 
 - Ideal for data that is rarely accessed like archives, which may be needed in minutes or hours.
 
-### S3 Glacier Deep Archive
+#### S3 Glacier Deep Archive
 
 - Lowest cost storage class for data archiving. Ideal for long-term retention of data that is accessed once or twice a year.
 - Able to retrieve objects within 12 to 48 hours.
