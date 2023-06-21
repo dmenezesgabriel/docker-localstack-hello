@@ -4,6 +4,8 @@
 
 AWS compliance is a set of services that can be used to meet compliance requirements. It includes services that can be used to meet compliance requirements, and services that can be used to audit compliance.
 
+In short AWS compliance is a set of services that can be used to meet compliance requirements. It includes services that can be used to meet compliance requirements, and services that can be used to audit compliance.
+
 ## AWS Artifact
 
 AWS Artifact is a service that can be used to download compliance reports. It can be used to download reports for AWS services, and for compliance standards.

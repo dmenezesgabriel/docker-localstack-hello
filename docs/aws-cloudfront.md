@@ -16,3 +16,7 @@ In short it will cache the content that has been requested and will serve it to 
 Examples:
 
 - If a user from the US requests a file, it will be cached on the nearest edge location in the US.
+
+### Cloudfront as Reverse Proxy
+
+Cloudfront can also be used as a reverse proxy, this is useful if you want to hide the origin server from the user.
