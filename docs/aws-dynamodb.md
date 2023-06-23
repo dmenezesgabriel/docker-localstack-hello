@@ -8,8 +8,12 @@ It stores items, items are composed of attributes. Each attribute has a name and
 
 - Each stored item can have different attributes.
 - Millisecond latency at any scale.
-- Serveless: no servers to provision, patch, or manage.
+- Serverless: no servers to provision, patch, or manage.
 - automatic scaling.
+
+### NoSQL
+
+NoSql databases are non-relational databases. They are designed to store and retrieve data in ways that are different from relational databases. They are designed to be highly scalable, and to be able to handle large amounts of data.
 
 ## Use cases
 
