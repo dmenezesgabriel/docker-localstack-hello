@@ -1,17 +1,37 @@
-# API Gateway
+# AWS API Gateway
 
-Create Api endpoints.
+> Create Api endpoints.
 
-Integration points:
+[AWS API Gateway](https://aws.amazon.com/api-gateway/)
+
+## Description
+
+AWS api gateway is a service that allows you to create, publish, maintain, monitor, and secure APIs at any scale.
+
+## Integration points
 
 - Lambda Functions
 - HTTP
 - Mock
 - AWS Service
 
-## Description
+```mermaid
+flowchart TB
+  subgraph AWS
+    subgraph "Static Web Application"
+      S3[S3 Bucket] --> CloudFront[CloudFront Distribution]
+      CloudFront -->|HTTPS| Users[Users]
+    end
 
-API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.
+    subgraph "Serverless Backend"
+      APIGW[API Gateway] --> Lambda1[AWS Lambda]
+      Lambda1 --> DynamoDB[DynamoDB]
+      APIGW --> Lambda2[AWS Lambda]
+      Lambda2 --> OtherServices[Other Services]
+    end
+  end
+
+```
 
 ## Features
 
@@ -24,3 +44,14 @@ API Gateway is a fully managed service that makes it easy for developers to crea
 - API Documentation
 - BInary Support: for sending files.
 - Logs Dashboard
+
+## Use Cases
+
+- REST API
+- GraphQL API
+- WebSockets API
+- HTTP API
+
+## Pricing
+
+The pricing is based on the number of API calls received and the amount of data transferred out.

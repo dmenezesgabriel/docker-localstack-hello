@@ -4,6 +4,28 @@
 
 The AWS Cloud Adoption Framework (AWS CAF) provides guidance for coordinating the different parts of organizations migrating to the AWS Cloud. The framework is designed to help you build a comprehensive approach to cloud computing across your organization, and throughout your IT lifecycle.
 
+```mermaid
+flowchart TB
+  subgraph "AWS Cloud Adoption Framework"
+    A[Business Perspective]
+    B[Governance Perspective]
+    C[People Perspective]
+    D[Platform Perspective]
+    E[Security Perspective]
+    F[Operations Perspective]
+    G[Value Perspective]
+    H[Adoption Roadmap]
+
+    A -->|Aligning Business Objectives| H
+    B -->|Establishing Governance| H
+    C -->|Enabling Teams| H
+    D -->|Designing the Cloud Platform| H
+    E -->|Implementing Security and Compliance| H
+    F -->|Managing Operations| H
+    G -->|Realizing Value| H
+  end
+```
+
 ## Perspectives
 
 - [Business](aws-caf.md#business)
@@ -20,7 +42,7 @@ This perspective ensures that IT aligns with business needs and that IT investme
 Common roles:
 
 - Business Owners
-- FInance Managers
+- Finance Managers
 - Budget Owners
 - Strategy stakeholders
 
@@ -36,7 +58,7 @@ Common roles:
 
 ### Governance
 
-This perspective focuses on the skills and processes to align IT strategy with business strategy. THis ensures that you maximize the business value and minimize risks.
+This perspective focuses on the skills and processes to align IT strategy with business strategy. This ensures that you maximize the business value and minimize risks.
 
 Common roles:
 
@@ -81,9 +103,57 @@ The AWS CAF Action Plan is a tool that helps you identify and address gaps in yo
 
 ## The 6 R's of migration
 
-- Rehosting (lift and shift)
-- Replatforming (lift, tinker and shift)
-- Retire
-- Retain
-- Repurchase
-- Refactoring
+### Rehosting
+
+Rehosting is the process of migrating an application component to a cloud-based infrastructure without redesigning the application. This is also known as lift-and-shift.
+
+Examples:
+
+- Migrating a virtual machine to a cloud-based virtual machine
+- Migrating a database to a cloud-based database
+
+### Replatforming
+
+Replatforming is the process of migrating an application component to a cloud-based infrastructure with some changes to improve performance, operations, or both. This is also known as lift-tinker-and-shift.
+
+Examples:
+
+- Migrating a database to a managed database service
+- Migrating a web application to a managed container service
+
+### Refactoring
+
+Refactoring is the process of migrating an application component to a cloud-based infrastructure by rewriting or extending the code to use cloud-native features.
+
+Examples:
+
+- Migrating a monolithic application to a microservices architecture
+- Migrating a batch processing application to a serverless architecture
+
+### Repurchasing
+
+Repurchasing is the process of migrating an application component to a different product or service. This is also known as drop and shop.
+
+Examples:
+
+- Migrating from an on-premises customer relationship management (CRM) system to a cloud-based CRM system
+- Migrating from an on-premises enterprise resource planning (ERP) system to a cloud-based ERP system
+- Migrating from an on-premises email system to a cloud-based email system
+
+### Retaining
+
+Retaining is the process of keeping an application component on-premises or in a hosting environment. This is also known as retain and retire.
+
+Examples:
+
+- Keeping an application component on-premises or in a hosting environment because of regulatory requirements
+- Keeping an application component on-premises or in a hosting environment because of the cost of migration
+
+### Retiring
+
+Retiring is the process of removing an application component from use. This is also known as retain and retire.
+
+Examples:
+
+- Removing an application component from use because it is no longer needed
+- Removing an application component from use because it is being replaced by a new application component
