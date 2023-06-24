@@ -2,7 +2,7 @@
 
 Elastic Block Storage is a storage device that can be attached to an EC2 instance. It is a network drive that you can attach to your instances while they run. It allows your instances to persist data, even after their termination.
 
-It must be always in the same availability zone of your EC2 instance. To access in another availability zone, you must create a snapshot and copy to another availability zone.
+It must be always in the **same availability zone** of your EC2 instance. To access in another availability zone, you must create a snapshot and copy to another availability zone.
 
 - Each EBS volume can be attached to only one EC2 instance at a time.
 - Multiple volumes of EBS can be attached to the same EC2 instance.

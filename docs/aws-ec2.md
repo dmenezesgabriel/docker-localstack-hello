@@ -83,7 +83,7 @@ IOPS (Input/Output Operations Per Second, pronounced eye-ops) is a common perfor
 Measure: IOPS (Input/ Output per second)
 
 - [EBS](aws-ebs.md): Elastic block storage
-- EFS: Elastic file system
+- [EFS](aws-efs.md): Elastic file system
 
 ## AMI - Amazon Machine Image
 
@@ -112,6 +112,16 @@ This model works like a contract, where you commit to a consistent amount of com
 Reserved Instances provide you with a significant discount (up to 75%) compared to On-Demand instance pricing. In addition, when Reserved Instances are assigned to a specific Availability Zone, they provide a capacity reservation, giving you additional confidence in your ability to launch instances when you need them.
 
 This model works like a contract, where you commit to a consistent amount of compute usage (measured in $/hour) for a 1 or 3 year term, and in exchange you receive a discount on that usage. You can choose between two different types of Reserved Instances: Standard Reserved Instances and Convertible Reserved Instances.
+
+#### Reserved Instances vs Savings Plans
+
+In summary the main differences between Reserved Instances and Savings Plans are:
+
+- **Instance Size Flexibility**: Savings Plans provide you with the flexibility to change instance families, sizes, OS types, and tenancies within a specific AWS Region. Reserved Instances are purchased for a specific instance family, size, and Region, and provide a capacity reservation when used in a specific Availability Zone.
+
+- **Term Commitment**: Savings Plans provide you with the flexibility to change your compute usage over time. Reserved Instances provide you with a capacity reservation when used in a specific Availability Zone, and provide a significant discount compared to On-Demand Instance pricing.
+
+- **Payment Options**: Savings Plans provide you with the flexibility to pay for your compute usage in one of two ways: All Upfront or On Demand. Reserved Instances provide you with the flexibility to pay for your compute usage in one of three ways: All Upfront, Partial Upfront, or No Upfront.
 
 ### Spot Instances
 
