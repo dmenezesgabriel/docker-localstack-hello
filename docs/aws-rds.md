@@ -1,4 +1,4 @@
-# RDS (Relational Database Service)
+# AWS RDS (Relational Database Service)
 
 **RDBMS**: Relational Database Management System.
 
