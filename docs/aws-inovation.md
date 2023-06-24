@@ -1,21 +1,21 @@
-# Innovation
+# AWS Innovation
 
-## AWS Texttract
+## AWS Textract
 
 Textract is a service that extracts text from images, documents and forms.
 
-## Lex
+## AWS Lex
 
 Lex is a service that allows you to build conversational interfaces using voice and text.
 
-## DeepRacer
+## AWS DeepRacer
 
 DeepRacer is a service that allows you to build and train autonomous driving models.
 
-## SageMaker
+## AWS SageMaker
 
 SageMaker is a service that allows you to build, train and deploy machine learning models.
 
-## Augumented AI
+## AWS Augmented AI
 
-Augumented AI is a service that allows you to build human review workflows for machine learning models.
+Augmented AI allows you to build workflows that allow humans to review the output of machine learning models and provide feedback to improve the model.

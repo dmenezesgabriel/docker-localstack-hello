@@ -1,5 +1,7 @@
 # Elastic Load Balancer (ELB)
 
+## Description
+
 Load Balancer is a service that distributes incoming traffic across multiple targets, such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. You can load balance all types of traffic, including HTTP, HTTPS, TCP, and WebSockets.
 
 ## Types

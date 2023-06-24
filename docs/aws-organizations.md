@@ -1,4 +1,4 @@
-# Organizations
+# AWS Organizations
 
 ## Description
 
@@ -17,3 +17,7 @@ Service control policies (SCPs) are used to control what services and actions ca
 ## Organizational units
 
 Organizational units (OUs) are used to group accounts. They can be used to apply SCPs to multiple accounts at once.
+
+## Benefits
+
+You can get discounts on AWS services by using consolidated billing. You can also get volume discounts on AWS support plans.

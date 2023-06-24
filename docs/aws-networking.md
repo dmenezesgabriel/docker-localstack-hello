@@ -1,6 +1,10 @@
-# Networking
+# AWS Networking
 
 > Who should be able to communicate with each other?
+
+## Description
+
+In short, AWS Networking is the process of connecting resources in a virtual network.
 
 ## VPC
 

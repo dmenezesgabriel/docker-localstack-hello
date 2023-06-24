@@ -2,6 +2,8 @@
 
 - [AWS Marketplace](https://aws.amazon.com/marketplace/)
 
+## Description
+
 AWS Marketplace is an online store that helps customers find, buy, and immediately start using software and services that run on AWS. You can use AWS Marketplace to find, buy, and deploy software that runs on AWS:
 
 - Find software from popular categories such as machine learning, security, and database.

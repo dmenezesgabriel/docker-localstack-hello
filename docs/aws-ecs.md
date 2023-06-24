@@ -1,5 +1,7 @@
 # ECS (Elastic Container Service)
 
+## Description
+
 Amazon ECS is a highly scalable, fast container management service that makes it easy to run, stop, and manage containers on a cluster.
 
 ## EC2 managed
