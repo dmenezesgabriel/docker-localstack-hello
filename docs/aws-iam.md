@@ -24,6 +24,27 @@ Roles are used to grant permissions to entities that are not users like AWS serv
 
 Policy documents are JSON documents that define permissions. They can be attached to users, groups, and roles. Policies can be created and managed in the IAM console.
 
+- **Version**: the version of the policy language (eg 2012-10-17).
+- **Statement**: a list of policy statements.
+- **Sid**: an optional identifier for the policy statement.
 - **Effect**: says whether to Allow or Deny the permissions.
 - **Action**: specifies the API calls that can be made against an AWS Service (eg cloudwatch:ListMetrics).
 - **Resource**: defines the scope of entities covered by the policy rule (eg a specific Amazon S3 bucket or Amazon EC2 instance, or \* which means any resource).
+
+Example:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1234567890",
+      "Effect": "Allow",
+      "Action": ["cloudwatch:ListMetrics"],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+**inline policies** are policies that are embedded directly into a user, group, or role.
