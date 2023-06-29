@@ -48,3 +48,11 @@ Example:
 ```
 
 **inline policies** are policies that are embedded directly into a user, group, or role.
+
+## Security Tools
+
+- **IAM Access Analyzer**: analyzes resource policies to help administrators and security teams protect their resources from unintended access.
+- **IAM Access Advisor**: shows the service permissions granted to a user and when those services were last accessed.
+- **IAM Credentials Report**: provides a detailed view of the status of IAM users' credentials, including passwords, access keys, and MFA devices.
+- **IAM Last Used**: shows when an IAM entity (user, group, or role) was last used in an attempt to access AWS services.
+- **IAM Policy Simulator**: tests the effects of IAM policies before committing them to production.
