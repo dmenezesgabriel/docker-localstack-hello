@@ -89,9 +89,17 @@ Measure: IOPS (Input/ Output per second)
 
 Provides the information required to launch an instance, which is a virtual server in the cloud. You must specify a source AMI when you launch an instance. You can launch multiple instances from a single AMI when you need multiple instances with the same configuration. You can use different AMIs to launch instances when you need instances with different configurations.
 
+## EC2 Image Builder
+
+Automatically build, test and distribute AMIs.
+
+## EC2 Instance Store
+
+High performance hardware disk attached to our EC2 instance, but is lost if instance is stopped or terminated
+
 ## Pricing
 
-With Amazon EC2, you pay for only the compute time you use while your instances are running. You are billed only for the instances you launch, and only for as long as they are running.
+With Amazon EC2, you pay for only the compute time you use while your instances are running. You are billed only for the instances you launch, and only fr as long as they are running.
 
 For some workloads (e.g. web servers), you can use Amazon EC2 Spot Instances to take advantage of unused EC2 capacity in the AWS cloud. Spot Instances are available at up to a 90% discount compared to On-Demand prices.
 
@@ -136,3 +144,10 @@ Dedicated Hosts are physical servers with EC2 instance capacity fully dedicated 
 This model works like a contract, where you commit to a consistent amount of compute usage (measured in $/hour) for a **1 or 3** year term, and in exchange you receive a discount on that usage.
 
 **Important!**: Instance stores can be lost if the instance is stopped or terminated, use [EBS](aws-ebs.md) instead.
+
+## Related
+
+- [Load Balancer](aws-elb.md)
+- [Auto Scaling](aws-scaling.md)
+- [Elastic Block Storage](aws-ebs.md)
+- [Elastic File System](aws-efs.md)

@@ -2,9 +2,7 @@
 
 > If you’ve tried to access a website that wouldn’t load and frequently timed out, the website might have received more requests than it was able to handle. This situation is similar to waiting in a long line at a coffee shop, when there is only one barista present to take orders from customers. (Cloud Practitioner, skill builder)
 
-## Scalability
-
-Scalability involves beginning with only the resources you need and then adjusting the resources as your needs change.
+- [Scalability](concepts.md#scalability)
 
 ## Auto Scaling
 
