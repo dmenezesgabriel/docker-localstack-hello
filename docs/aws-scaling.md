@@ -6,7 +6,7 @@
 
 ## Auto Scaling
 
-If you’ve tried to access a website that wouldn’t load and frequently timed out, the website might have received more requests than it was able to handle. This situation is similar to waiting in a long line at a coffee shop, when there is only one barista present to take orders from customers.
+Auto Scaling is a service that automatically adjusts the number of EC2 instances in an Auto Scaling group according to the traffic load. _if an instance is manually terminated, Auto Scaling will automatically launch a new instance to replace it._
 
 ### Auto Scaling Group
 
