@@ -2,6 +2,8 @@
 
 ## Description
 
+Is the bridge between on-premises applications and AWS Cloud Storage.
+
 - Hardware appliance that provides your applications with access to virtually unlimited storage in AWS Cloud.
 - Hybrid cloud storage service that gives you on-premises access to virtually unlimited cloud storage.
 - Connect on-premises software appliance with cloud-based storage to provide seamless and secure integration between an organization's on-premises IT environment and AWS's storage infrastructure.
