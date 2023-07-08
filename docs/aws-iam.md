@@ -30,6 +30,7 @@ Policy documents are JSON documents that define permissions. They can be attache
 - **Effect**: says whether to Allow or Deny the permissions.
 - **Action**: specifies the API calls that can be made against an AWS Service (eg cloudwatch:ListMetrics).
 - **Resource**: defines the scope of entities covered by the policy rule (eg a specific Amazon S3 bucket or Amazon EC2 instance, or \* which means any resource).
+- **Principal**: specifies the user, account, service, or other entity that is allowed or denied access to a resource.
 
 Example:
 
