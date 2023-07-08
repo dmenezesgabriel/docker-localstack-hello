@@ -9,10 +9,22 @@
 ## Features
 
 - 9.99999999999% of durability (11 9s)
+- 99.99% availability (out of 1 year, 1 hour of downtime)
 - Block Public Access
 - Versioning
 - Encryption
 - ACL
+
+### Encryption
+
+### Server Side Encryption
+
+- S3 Managed Keys - SSE-S3
+- always encrypted at rest
+
+### Client Side Encryption
+
+- KMS Managed Keys - SSE-KMS
 
 ## Buckets
 
@@ -117,9 +129,15 @@ Enables encryption bu default
 
 Example: Move files to IA after 30 days, and to Glacier after 60 days.
 
-### S3 Cross Region Replication
+### Replication flavors
 
-- Replicate files between regions.
+#### Cross Region Replication
+
+- Replicate files to another region.
+
+#### Same Region Replication
+
+- Replicate files to another bucket in the same region.
 
 ### S3 Object Lock
 
