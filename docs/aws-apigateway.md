@@ -8,6 +8,10 @@
 
 AWS api gateway is a service that allows you to create, publish, maintain, monitor, and secure APIs at any scale.
 
+- Serverless
+- Supports REST and WebSocket APIs
+- Support for security, user authentication, API throttling, monitoring, API Keys, etc.
+
 ## Integration points
 
 - Lambda Functions
