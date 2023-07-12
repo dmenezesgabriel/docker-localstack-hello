@@ -21,3 +21,8 @@ API Gateway is a fully managed service that makes it easy for developers to crea
 AWS Lambda pricing is based on the number of **requests** for your functions and the **duration**, the time it takes for your code to execute. The AWS Lambda free usage tier includes 1M free requests per month and 400,000 GB of compute time per month. For more information, see [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/).
 
 You can save on AWS Lambda costs by signing up for Compute Saving Plans. A compute Savings Plan offers lower compute costs in exchange for committing to a consistent amount of usage over a 1-year or 3-year term. This is an example of paying less when you reserve. For more information, see [AWS Compute Savings Plans](https://aws.amazon.com/savingsplans/compute/).
+
+In summary:
+
+- By the time run x by the ram provisioned
+- By the number of invocations
