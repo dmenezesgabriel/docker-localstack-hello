@@ -2,6 +2,12 @@
 
 [global infrastructure](https://aws.amazon.com/pt/about-aws/global-infrastructure/)
 
+Why make a global application?
+
+- Decrease latency
+- Disaster recovery
+- Attack protection
+
 ## Region
 
 Regions are geographical areas divided by AWS to host their services. Each region is a separate geographic area. Each region has multiple, isolated locations known as Availability Zones. Each region is completely independent. Each Availability Zone is isolated, but the Availability Zones in a region are connected through low-latency links. Each Availability Zone is designed as an independent failure zone.
@@ -66,9 +72,3 @@ An edge location is a site that Amazon CloudFront uses to cache copies of your c
 - Deliver streaming videos
 - Distribute software and game updates
 - Provide a secure, fast, and reliable way to put your data in AWS
-
-### Services
-
-- [Route 53](aws-route53.md)
-- [CloudFront](aws-cloudfront.md)
-- [AWS Outposts](aws-outposts.md)

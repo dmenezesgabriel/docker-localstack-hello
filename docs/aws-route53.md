@@ -1,8 +1,10 @@
 # AWS Route 53
 
-DNS: Domain Name System
+## Description
 
-- DNS is a globally distributed service that translates human readable names like www.example.com into the numeric IP addresses.
+### Domain Name System (DNS)
+
+DNS is a globally distributed service that translates human readable names like www.example.com into the numeric IP addresses.
 
 ## Routing Policies
 
