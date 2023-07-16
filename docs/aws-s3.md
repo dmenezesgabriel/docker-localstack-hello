@@ -26,6 +26,10 @@
 
 - KMS Managed Keys - SSE-KMS
 
+### Transfer Acceleration
+
+- Upload files to a closer AWS location, and then it is transferred to the bucket.
+
 ## Buckets
 
 A Bucket is a container for objects stored in Amazon S3. Every object is contained in a bucket. For example, if the object named photos/puppy.jpg is stored in the johnsmith bucket, then it is addressable using the URL http://johnsmith.s3.amazonaws.com/photos/puppy.jpg.

@@ -8,18 +8,18 @@ DNS is a globally distributed service that translates human readable names like 
 
 ## Routing Policies
 
+### Simple Routing
+
+- Use when you have a single resource that performs a given function for your domain, for example, one web server that serves content for the example.com website.
+
+### Weighted Routing
+
+- Use to route traffic to multiple resources in proportions that you specify.
+
 ### Latency-based Routing
 
 - Use when you have resources in multiple AWS Regions and you want to route traffic to the region that provides the best latency.
 
-### Geolocation Routing
+### Failover Routing
 
-- Use when you want to route traffic based on the location of your users.
-
-### Geoproximity Routing
-
-- Use when you want to route traffic based on the location of your resources and, optionally, shift traffic from resources in one location to resources in another.
-
-### Weighted Routing robin
-
-- Use to route traffic to multiple resources in proportions that you specify.
+- Use when you want to configure active-passive failover.
