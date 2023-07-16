@@ -36,3 +36,13 @@ AWS CodeDeploy is a service that automates code deployments to any instance, inc
 
 - EC2 instances
 - On-premises instances
+
+## AWS CodeGuru
+
+### CodeGuru Reviewer
+
+An ML-powered developer tool that reviews your code line-by-line and provides intelligent recommendations to improve code quality and identify an application’s most expensive lines of code.
+
+### CodeGuru Profiler
+
+Help to identify high CPU utilization and latency in your application and provides recommendations to fix them.
