@@ -25,3 +25,12 @@ Amazon GuardDuty is a service that provides intelligent threat detection for you
 ## WAF
 
 WAF (Web Application Firewall) is a service that can be used to block malicious traffic. It can be used to block malicious traffic, and to block malicious traffic.
+
+- Protects web applications from common web exploits (Layer 7).
+- Layer 7 is HTTP (vs Layer 4 is TCP).
+- Deploy on Application Load Balancer, API Gateway, CloudFront.
+
+## Network Firewall
+
+- Protect your entire Amazon VPC or segment of a VPC.
+- From Layer 3 to Layer 7.
