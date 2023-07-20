@@ -50,3 +50,24 @@ AWS Secrets Manager is a service that helps you protect secrets needed to access
 Inspector is an automated security assessment service that helps improve the security and compliance of applications deployed on AWS. Inspector automatically assesses applications for vulnerabilities or deviations from best practices. After performing an assessment, Inspector produces a detailed list of security findings prioritized by level of severity. These findings can be reviewed directly or as part of detailed assessment reports which are available via the Inspector console or API.
 
 - Only for EC2 instances, Container images and Lambda functions.
+
+### Macie
+
+Macie is a security service that uses machine learning to automatically discover, classify, and protect sensitive data in AWS. It will alert you to sensitive data in your S3 buckets, such as personally identifiable information (PII) or intellectual property, that has been made publicly available.
+
+### AWS Security Hub
+
+Automatically aggregates alerts in predefined dashboards, or custom dashboards from various AWS services such as GuardDuty, Inspector, Macie, IAM Access Analyzer, Config, IAM Access Analyzer, AWS Systems Manager, and AWS Firewall Manager, AWS Health, and AWS Partner Network (APN) solutions.
+
+### AWS Detective
+
+It is used to find the root cause of security issues or suspicious activities using machine learning and graphs. Automatically collects and process events from AWS GuardDuty, VPC Flow Logs, AWS CloudTrail and create a unified view.
+
+### AWS Abuse
+
+Report suspected AWS resources for abusive or illegal purposes.
+
+examples:
+
+- Spam
+- DoS or DDoS
