@@ -46,3 +46,7 @@ Fully managed service that uses machine learning to create private, customized p
 ## Amazon TextTract
 
 Extract text and data from virtually any document using machine learning. It is used for document processing, forms processing, and contract analysis.
+
+## Amazon Translate
+
+Fully managed service that uses machine learning to translate text between languages. It is used for real-time translation, content localization, and customer support.
