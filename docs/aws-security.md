@@ -71,3 +71,21 @@ examples:
 
 - Spam
 - DoS or DDoS
+
+## AWS Security Token Service (STS)
+
+AWS Security Token Service (STS) is a web service that enables you to request temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users). The token can then be used to grant access to the AWS resources that are available to the IAM user.
+
+## AWS Cognito
+
+Web and Mobile application users must not have aws accounts to use your apps.
+
+Amazon Cognito is a service that you can use to create unique identities for your users, authenticate these identities with identity providers, and save mobile user data in the AWS Cloud.
+
+## AWS Active Directory Service
+
+AWS Directory Service provides multiple ways to use Amazon Cloud Directory and Microsoft Active Directory (AD) with other AWS services. Directories store information about users, groups, and devices, and administrators use them to manage access to information and resources.
+
+## AWS IAM Identity Center
+
+One login for all AWS accounts in AWS Organizations, business cloud applications(Salesforce, Office 365, etc.), SAML2.0 compliant applications, and EC2 Windows instances.
