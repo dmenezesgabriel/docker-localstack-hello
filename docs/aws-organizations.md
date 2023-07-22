@@ -9,8 +9,12 @@ AWS organizations are used to manage multiple AWS accounts. They can be used to 
 - Centralized management of multiple AWS accounts
 - Consolidated billing
 - Service control policies
+- Volume discounts for EC2, S3 ...
+- Reserved instances sharing
+- Automate account creation
+- Restrict account privileges using SCPs
 
-### Service control policies
+### Service control policies (SCPs)
 
 Service control policies (SCPs) are used to control what services and actions can be used in an account. They can be used to restrict access to services and actions that are not needed in an account. SCPs can be applied to accounts and organizational units (OUs).
 

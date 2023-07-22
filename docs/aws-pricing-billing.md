@@ -60,8 +60,38 @@ Budgets give you the ability to set custom budgets that alert you when your cost
 
 ## Cost Explorer
 
-> Visualize and manage your AWS costs and usage over time.
+> Visualize and manage your AWS costs and usage **over time**.
 
 - [Cost Explorer](https://console.aws.amazon.com/billing/home?#/costexplorer)
 
 Cost Explorer has an easy-to-use interface that lets you visualize, understand, and manage your AWS costs and usage over time.
+
+## Billing Alarm
+
+Available only in the `us-east-1` region.
+
+## Compute Savings Plans
+
+Reduce your compute costs by committing to a consistent amount of compute usage (measured in $/hour) for a 1 or 3 year term.
+
+## AWS Compute Optimizer
+
+Analyze your compute usage patterns to identify opportunities to save money.
+
+## Cost Allocation Tas
+
+Tag your AWS resources to easily identify their cost on your bill.
+
+## Cost and Usage Report
+
+Access comprehensive cost and usage information as a CSV or Parquet file.
+
+## AWS Anomaly Detection
+
+Continuously monitors your usage and cost trends to identify unusual spending patterns using Machine Learning.
+
+## AWS Service Quotas
+
+Create CloudWatch alarms to notify you when you are approaching your service quotas.
+
+- Example: EC2 instances per region, Lambda concurrent executions, etc.
