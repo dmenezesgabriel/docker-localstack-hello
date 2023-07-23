@@ -157,3 +157,10 @@ Examples:
 
 - Removing an application component from use because it is no longer needed
 - Removing an application component from use because it is being replaced by a new application component
+
+## Transformation domains
+
+- Technology: Using the cloud to migrate and modernize legacy infrastructure, data, and applications.
+- Process: Digitizing, automating and optimizing business operations.
+- Organization: Reimagine operating models.
+- Product: Reimagine business models.

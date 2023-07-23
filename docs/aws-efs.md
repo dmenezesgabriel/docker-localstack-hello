@@ -8,6 +8,8 @@ EFS is a file storage service for EC2 instances. It is a network file system tha
 - Stores data across multiple AZs in a region.
 - on-premises servers can access EFS using Direct Connect or VPN.
 
+**It does not offer block-level storage.**
+
 ## EBS vs EFS
 
 EBS is a block storage service, while EFS is a file storage service. EBS can only be mounted on one EC2 instance at a time, while EFS can be mounted on multiple EC2 instances at the same time. EBS is only available in one AZ, while EFS is available in all AZs in the region and EFS automatically scales up to petabytes.

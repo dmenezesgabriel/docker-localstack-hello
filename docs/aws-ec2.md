@@ -89,6 +89,8 @@ Measure: IOPS (Input/ Output per second)
 
 Provides the information required to launch an instance, which is a virtual server in the cloud. You must specify a source AMI when you launch an instance. You can launch multiple instances from a single AMI when you need multiple instances with the same configuration. You can use different AMIs to launch instances when you need instances with different configurations.
 
+The AMI must be in the same region as that of the EC2 instance to be launched. If the AMI exists in a different region, you can copy that AMI to the region where you want to launch the EC2 instance. The region of AMI has no bearing on the performance of the EC2 instance.
+
 ## EC2 Image Builder
 
 Automatically build, test and distribute AMIs.
@@ -96,6 +98,8 @@ Automatically build, test and distribute AMIs.
 ## EC2 Instance Store
 
 High performance hardware disk attached to our EC2 instance, but is lost if instance is stopped or terminated
+
+**It offers a temporary block-level storage.**
 
 ## Pricing
 
@@ -151,3 +155,7 @@ This model works like a contract, where you commit to a consistent amount of com
 - [Auto Scaling](aws-scaling.md)
 - [Elastic Block Storage](aws-ebs.md)
 - [Elastic File System](aws-efs.md)
+
+## Aditional info
+
+- There is a one-minute minimum charge for Linux based EC2 instances:w

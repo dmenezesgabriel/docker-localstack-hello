@@ -7,8 +7,7 @@
 RDS is a managed database service for relational databases. It is a regional service, so it can be accessed from all AZs in the region.
 
 - Automated provisioning, OS patching, backups, monitoring, scaling, failover, redundancy.
-
-**Lift and shift**: migrating an application to the cloud without making any changes to the application._RDS cannot be acessed by SSH_
+- Read replica improves database scalability
 
 ## Price
 

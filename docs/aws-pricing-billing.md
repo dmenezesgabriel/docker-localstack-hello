@@ -66,6 +66,8 @@ Budgets give you the ability to set custom budgets that alert you when your cost
 
 Cost Explorer has an easy-to-use interface that lets you visualize, understand, and manage your AWS costs and usage over time.
 
+- Forecast future costs and usage.
+
 ## Billing Alarm
 
 Available only in the `us-east-1` region.
@@ -77,6 +79,13 @@ Reduce your compute costs by committing to a consistent amount of compute usage 
 ## AWS Compute Optimizer
 
 Analyze your compute usage patterns to identify opportunities to save money.
+
+It applies to:
+
+- EC2
+- EBS Volume configurations
+- Auto Scaling Groups
+- Lambda functions
 
 ## Cost Allocation Tas
 

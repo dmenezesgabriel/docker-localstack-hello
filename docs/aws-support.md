@@ -49,6 +49,7 @@ The Enterprise support plan provides all the features of the Enterprise On-Ramp 
 - Cost Optimization Workshop and tools
 - Support automation workflows
 - 15 minutes or less response time for business-critical issues.
+- Online training with self-paced labs
 
 ## Technical Account Manager (TAM)
 
