@@ -49,7 +49,10 @@ AWS Secrets Manager is a service that helps you protect secrets needed to access
 
 Inspector is an automated security assessment service that helps improve the security and compliance of applications deployed on AWS. Inspector automatically assesses applications for vulnerabilities or deviations from best practices. After performing an assessment, Inspector produces a detailed list of security findings prioritized by level of severity. These findings can be reviewed directly or as part of detailed assessment reports which are available via the Inspector console or API.
 
-- Only for EC2 instances, Container images and Lambda functions.
+**Only for EC2 instances, Container images and Lambda functions.**
+
+- Network accessibility
+- Security state of applications
 
 ### Macie
 

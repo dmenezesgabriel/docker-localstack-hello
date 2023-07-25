@@ -14,6 +14,8 @@ Alert examples:
 - disk usage
 - status check
 
+**It can be installed on on-premises servers using CloudWatch agent.**
+
 ### Cloud Watch Alarms
 
 - SNS Topic

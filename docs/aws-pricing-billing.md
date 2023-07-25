@@ -67,6 +67,7 @@ Budgets give you the ability to set custom budgets that alert you when your cost
 Cost Explorer has an easy-to-use interface that lets you visualize, understand, and manage your AWS costs and usage over time.
 
 - Forecast future costs and usage.
+- Rightsizing recommendation feature to help identify underutilized EC2 instances across member accounts.
 
 ## Billing Alarm
 

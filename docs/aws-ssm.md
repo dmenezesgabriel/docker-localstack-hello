@@ -18,6 +18,14 @@ It works on linux, windows, mac and raspberry pi.
 - Run commands across all your servers
 - Store parameter configuration with SSM Parameter Store
 
+- Patch Manager
+- Inventory
+- Fleet Manager
+
+### Use cases
+
+- Automate database patching according to a schedule.
+
 ### AWS Systems Manager Session Manager
 
 Allow you to connect to your instances **without the need to open ports, or use a bastion host, or use SSH keys**.
