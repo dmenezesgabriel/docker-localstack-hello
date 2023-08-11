@@ -10,3 +10,5 @@ AWS Marketplace is an online store that helps customers find, buy, and immediate
 - Find software from popular open source projects such as Kubernetes, Docker, and Wordpress.
 - Find software from popular vendors such as Splunk, Trend Micro, and Couchbase.
 - Find software that runs on Amazon EC2, Amazon ECS, and AWS Lambda.
+- Sell Software as a Service Solutions to AWS Customers.
+- Buy Software that has been bundled into customized AMIs by AWS Marketplace Sellers.

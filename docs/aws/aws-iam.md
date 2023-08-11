@@ -8,6 +8,12 @@ IAM is the AWS Identity and Access Management service. It is used to manage user
 
 The root user is the first user created when an AWS account is created. It has full access to all AWS services and resources in the account. It is recommended to not use the root user for day-to-day tasks, but instead to create an IAM user with the appropriate permissions.
 
+Only the root user can:
+
+- Alter account settings
+- Close the account
+- Change or cancel support plans
+
 ## Users
 
 Users are the entities that interact with AWS services and resources. They can be created and managed in the IAM console. Users can be assigned to groups and roles, and can have policies attached to them.
@@ -57,3 +63,7 @@ Example:
 - **IAM Credentials Report**: provides a detailed view of the status of IAM users' credentials, including passwords, access keys, and MFA devices.
 - **IAM Last Used**: shows when an IAM entity (user, group, or role) was last used in an attempt to access AWS services.
 - **IAM Policy Simulator**: tests the effects of IAM policies before committing them to production.
+
+### IAM Access Analyzer
+
+Find out what resources are shared externally.

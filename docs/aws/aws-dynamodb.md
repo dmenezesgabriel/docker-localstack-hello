@@ -13,6 +13,8 @@ It stores items, items are composed of attributes. Each attribute has a name and
 - Serverless: no servers to provision, patch, or manage.
 - automatic scaling.
 
+**Offers active-active cross-region support with Global Tables.**
+
 ### NoSQL
 
 NoSql databases are non-relational databases. They are designed to store and retrieve data in ways that are different from relational databases. They are designed to be highly scalable, and to be able to handle large amounts of data._You cannot link tables, all relevant information must be at one table_.

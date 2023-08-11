@@ -14,6 +14,18 @@ Alert examples:
 - disk usage
 - status check
 
+**It can be installed on on-premises servers using CloudWatch agent.**
+
+### Cloud Watch Alarms
+
+- SNS Topic
+- Auto Scaling Group
+- EC2 Actions
+
+### Cloud Watch Events
+
+- Can trigger Lambda functions on schedule via cron expressions.
+
 ## Cloud Trail
 
 Cloud Trail is a web service that records AWS API calls for your account and delivers log files to you. The recorded information includes the identity of the API caller, the time of the API call, the source IP address of the API caller, the request parameters, and the response elements returned by the AWS service.

@@ -41,12 +41,12 @@ flowchart TB
 
 - API Keys
 - Custom Domain names
-- CLient Certificates
+- Client Certificates
 - Deployment Stages (dev, prod)
 - Authorizers (Authentication)
 - Models: Schema of requests data that the API will receive for validation purpose.
 - API Documentation
-- BInary Support: for sending files.
+- Binary Support: for sending files.
 - Logs Dashboard
 
 ## Use Cases

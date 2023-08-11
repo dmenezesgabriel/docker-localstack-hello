@@ -5,3 +5,6 @@
 ## Description
 
 The shared responsibility model is a security framework that defines the security responsibilities of AWS and its customers. The model is designed to help clarify which security tasks are the responsibility of AWS and which are the responsibility of the customer. The shared responsibility model is applicable to all AWS services except Amazon Lightsail, Amazon Mechanical Turk, and Amazon Route 53 Hosted Zones.
+
+- AWS is responsible for the security **of** the cloud.
+- The customer is responsible for the security **in** the cloud.
