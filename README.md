@@ -10,6 +10,15 @@ Local Amazon Web Services (AWS)
 
 ## Setup
 
+### AWS CLI V2
+
+After installation if using Git Bash:
+
+```sh
+# ~/.bashrc
+alias aws="/c/'Program Files'/Amazon/AWSCLIV2/aws.exe"
+```
+
 ### AWS Local CLI
 
 [Github](https://github.com/localstack/awscli-local)
