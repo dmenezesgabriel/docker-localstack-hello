@@ -58,6 +58,8 @@ Consolidated billing enables you to consolidate payment for multiple AWS account
 
 Budgets give you the ability to set custom budgets that alert you when your costs or usage exceed (or are forecasted to exceed) your budgeted amount.
 
+- You can also use AWS Budgets to set reservation utilization or coverage targets and receive alerts when your utilization drops below the threshold you define. Reservation alerts are supported for Amazon EC2, Amazon RDS, Amazon Redshift, Amazon ElastiCache, and Amazon Elasticsearch reservations.
+
 ## Cost Explorer
 
 > Visualize and manage your AWS costs and usage **over time**.
@@ -88,7 +90,7 @@ It applies to:
 - Auto Scaling Groups
 - Lambda functions
 
-## Cost Allocation Tas
+## Cost Allocation Tax
 
 Tag your AWS resources to easily identify their cost on your bill.
 
@@ -105,3 +107,11 @@ Continuously monitors your usage and cost trends to identify unusual spending pa
 Create CloudWatch alarms to notify you when you are approaching your service quotas.
 
 - Example: EC2 instances per region, Lambda concurrent executions, etc.
+
+## Reservation to optimize costs
+
+- EC2
+- DynamoDB
+- RDS
+- ElastiCache
+- Redshift

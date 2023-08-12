@@ -14,7 +14,7 @@ Regions are geographical areas divided by AWS to host their services. Each regio
 
 A Region is a named set of AWS resources in the same geographic area. A Region comprises at least two Availability Zones. Regions would be the appropriate way to replicate data in a Disaster Recovery plan.
 
-In short, a region is a physical location in the world that consists of two or more Availability Zones (AZs). AWS has 24 regions around the world, and 77 Availability Zones.
+In short, a region is a physical location in the world that consists of **two or more** Availability Zones (AZs). AWS has 24 regions around the world, and 77 Availability Zones.
 
 - America/Sao_Paulo
 - America/New_York
@@ -33,7 +33,7 @@ Offers global storage and compute power implementation.
 
 ## Availability Zones (AZ)
 
-Is a logical data center in a region, each AZ is supported by one or more physical data centers nearby, with redundant power, networking and connectivity, housed in separate facilities. Partitioned applications can be deployed across multiple AZs to achieve high availability.
+Is a logical data center in a region, each AZ is supported by **one or more** physical data centers nearby, with redundant power, networking and connectivity, housed in separate facilities. Partitioned applications can be deployed across multiple AZs to achieve high availability.
 
 - north
 - east

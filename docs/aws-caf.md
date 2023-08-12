@@ -75,8 +75,7 @@ This perspective includes principles and patterns for implementing new solutions
 Common roles:
 
 - Chief Technology Officer (CTO)
-- IT Managers
-- Solution Architects
+- Engineer
 
 ### Security
 

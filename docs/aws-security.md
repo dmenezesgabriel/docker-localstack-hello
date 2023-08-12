@@ -4,15 +4,29 @@
 
 Shield standard is a free service that protects your website from DDoS attacks.
 
+- Amazon Route 53
+- AWS Global Accelerator
+
 ## Shield advanced
 
 Shield advanced is a paid service that protects your website from DDoS attacks. It includes a web application firewall (WAF) that can be used to block malicious traffic.
 
 **DDoS** stands for Distributed Denial of Service. It is a type of attack that is used to make a website unavailable by flooding it with traffic.
 
+- Amazon Route 53
+- AWS Global Accelerator
+
 ## KMS
 
 KMS (Key Management Service) is a service that allows you to create and manage encryption keys. It is used by other AWS services to encrypt data at rest.
+
+Metadata:
+
+- Key ID
+- Key ARN
+- Creation date
+
+The KMS keys that you create are customer managed keys (CMKs). Customer managed keys are keys that you create, own and manage.
 
 ## GuardDuty
 
@@ -27,8 +41,7 @@ Amazon GuardDuty is a service that provides intelligent threat detection for you
 
 WAF (Web Application Firewall) is a service that can be used to block malicious traffic. It can be used to block malicious traffic, and to block malicious traffic.
 
-- Protects web applications from common web exploits (Layer 7).
-- Layer 7 is HTTP (vs Layer 4 is TCP).
+- Protects web applications from common web exploits (Layer 7 HTTP).
 - Deploy on Application Load Balancer, API Gateway, CloudFront.
 
 ## Network Firewall
@@ -43,7 +56,7 @@ WAF (Web Application Firewall) is a service that can be used to block malicious 
 
 ## AWS Secrets Manager (ASM)
 
-AWS Secrets Manager is a service that helps you protect secrets needed to access your applications, services, and IT resources. The service enables you to easily rotate, manage, and retrieve database credentials, API keys, and other secrets throughout their lifecycle.
+AWS nager is a service that helps you protect secrets needed to access your applications, services, and IT resources. The service enables you to easily rotate, manage, and retrieve database credentials, API keys, and other secrets throughout their lifecycle.
 
 ## Inspector
 

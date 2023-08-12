@@ -22,6 +22,18 @@ VPC peering connection is a networking connection between two VPCs that enables 
 
 A VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC do not require public IP addresses to communicate with resources in the service. Traffic between your VPC and the other service does not leave the Amazon network.
 
+- VPC gateway endpoint support S3 and DynamoDB.
+- VPC interface endpoint support other AWS services.
+
+#### Interface vs Gateway endpoint
+
+- Interface endpoint: powered by AWS PrivateLink, it is an elastic network interface with a private IP address that serves as an entry point for traffic destined to a supported service.
+- Gateway endpoint: a gateway endpoint is a gateway that you specify as a target for a route in your route table for traffic destined to a supported AWS service.
+
+Interface endpoints are used when you want to connect to a service that is powered by AWS PrivateLink. Gateway endpoints are used when you want to connect to a service using a private connection.
+
+AWS Private link is used when you want to connect to a service that is powered by AWS PrivateLink. AWS PrivateLink is a technology that enables you to privately access services by using private IP addresses. AWS PrivateLink restricts all network traffic between your VPC and other services to the Amazon network. AWS PrivateLink provides private connectivity between VPCs, AWS services, and on-premises applications, securely on the Amazon network.
+
 #### AWS PrivateLink
 
 AWS PrivateLink is a technology that enables you to privately access services by using private IP addresses. AWS PrivateLink restricts all network traffic between your VPC and other services to the Amazon network. AWS PrivateLink provides private connectivity between VPCs, AWS services, and on-premises applications, securely on the Amazon network.
@@ -50,6 +62,8 @@ An internet gateway is a horizontally scaled, redundant, and highly available VP
 
 A NAT gateway is a device that enables instances in a private subnet to connect to the internet or other AWS services, but prevents the internet from initiating a connection with those instances.
 
+- Managed by AWS
+
 ## Virtual Private Gateway
 
 A virtual private gateway is the VPN concentrator on the Amazon side of the VPN connection between your on-premises network and your VPC.
@@ -71,6 +85,7 @@ A security group acts as a virtual firewall for your instance to control inbound
 
 - stateful
 - at instance level
+- can have allow rules only
 
 **inbound**: traffic coming into the instance.
 **outbound**: traffic going out of the instance.

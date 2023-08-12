@@ -50,6 +50,10 @@ Security is the ability to protect information, systems, and assets while delive
 
 Reliability is the ability of a system to recover from infrastructure or service disruptions, dynamically acquire computing resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues.
 
+- AWS CloudTrail
+- Amazon cloud Watch
+- AWS Config
+
 ### Performance Efficiency
 
 Performance efficiency is the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve.

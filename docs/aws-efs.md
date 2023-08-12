@@ -2,11 +2,12 @@
 
 ## Description
 
-EFS is a file storage service for EC2 instances. It is a network file system that can be mounted on multiple EC2 instances at the same time. It is a regional service, so it can be accessed from all AZs in the region. _similar to a shared drive on a network_.
+EFS is a file storage service for EC2 instances. It is a network file system that can be mounted on multiple EC2 instances at the same time. It is a regional service, so it can be accessed from **all AZs** in the region. _similar to a shared drive on a network_.
 
 - Works like a shared drive for EC2 instances.
 - Stores data across multiple AZs in a region.
 - on-premises servers can access EFS using Direct Connect or VPN.
+- can be mounted on instances across different AZs.
 
 **It does not offer block-level storage.**
 
